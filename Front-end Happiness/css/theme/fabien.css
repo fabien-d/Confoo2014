@@ -54,6 +54,38 @@ body {
     color: rgba( 255, 255, 255, .6 );
 }
 
+.reveal table {
+  width: 100%;
+}
+
+.reveal table th {
+  border-bottom: 1px solid rgba( 255,255,255,.4 );
+}
+.reveal table th:first-child,
+.reveal table td:first-child {
+  border-left: 0;
+}
+
+.reveal table th,
+.reveal table td {
+  border-left: 1px solid rgba( 255,255,255,.4 );
+  padding: 20px 0;
+}
+
+.reveal table td,
+.reveal table th {
+  text-align: center;
+}
+
+.reveal pre.fragment {
+  margin-bottom: 0;
+}
+
+.reveal pre code {
+  box-shadow: none;
+  background: rgba(255,255,255,.1);
+}
+
 /*********************************************
  * LINKS
  *********************************************/
