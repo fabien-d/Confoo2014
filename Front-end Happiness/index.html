@@ -12,19 +12,19 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <link rel="stylesheet" href="css/reveal.min.css">
-        <link rel="stylesheet" href="css/theme/fabien.css" id="theme">
+        <link rel="stylesheet" href="../common/css/reveal.min.css">
+        <link rel="stylesheet" href="../common/css/theme/fabien.css" id="theme">
 
         <!-- For syntax highlighting -->
-        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <link rel="stylesheet" href="../common/lib/css/zenburn.css">
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
         <script>
-            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+            document.write( '<link rel="stylesheet" href="../common/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
         </script>
 
         <!--[if lt IE 9]>
-        <script src="lib/js/html5shiv.js"></script>
+        <script src="../common/lib/js/html5shiv.js"></script>
         <![endif]-->
     </head>
     <body>
@@ -33,7 +33,7 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section data-background="img/automation.jpg">
-                    <h1>developer happiness</h1>
+                    <h1>front-end developer happiness</h1>
                     <h3>courtesy of build tools</h3>
                     <p class="footnote">
                         <small>Formely: What makes me "Grunt"?</small><br>
@@ -98,11 +98,6 @@
                     <h2>Linting / Concatenation / Minification / Versioning / Preprocessors / Testing / Coverage / Dependency management / Continuous deployment / Version control / Frameworks / Libraries&hellip;</h2>
                 </section>
 
-                <section data-background="img/heman.gif">
-                    <h1>We have the power</h1>
-                    <h3>to overcome this</h3>
-                </section>
-
                 <section data-background="img/crated.jpg">
                     <h1>5 reasons</h1>
                     <h3>we use build tools</h3>
@@ -140,7 +135,7 @@
 
                 <section>
                     <h1>Project setup: goal</h1>
-                    <p>Coding ready in under 5 mins</p>
+                    <h3>coding ready in under 5 mins</h3>
                 </section>
 
                 <section>
@@ -155,7 +150,7 @@
                 </section>
 
                 <section>
-                    <h1>Setup</h1>
+                    <h1>Project setup</h1>
                     <pre><code> $ > phing proj:build</code></pre>
                     <div class="fragment"><pre><code> # dependency management: composer, npm, bower
  # set environment:       build/environment properties, autoloader
@@ -178,12 +173,163 @@
 
                 <section>
                     <h3>2.</h3>
-                    <h1>Output</h1>
+                    <h1>Project output</h1>
+                </section>
+
+                <section>
+                    <h1>Project output: goal</h1>
+                    <h3>reproducible results regardless of developer setup/workflow</h3>
+                </section>
+
+                <section>
+                    <h1>Project output: tools</h1>
+                    <h3>Grunt</h3>
+                </section>
+
+                <section>
+                    <h1>CSS &amp; JavaScript</h1>
+                    <h3>abstract settings to the build tool</h3>
+                    <pre class="fragment"><code> $ > grunt [ compass : cssmin : versioning ]</code></pre>
+                    <div class="fragment"><pre><code> # compass:    Sass -> CSS
+ # cssmin:     minify outputted CSS
+ # versioning: append MD5 hash to filename</code></pre></div>
+                    <pre class="fragment"><code> $ > grunt [ uglify : versioning ]</code></pre>
+                    <div class="fragment"><pre><code> # uglify:     concat &amp; minify JavaScript
+ # versioning: append MD5 hash to filename</code></pre></div>
+                    <p class="fragment">command line, IDE or&hellip; result is the same</p>
                 </section>
 
                 <section>
                     <h3>3.</h3>
-                    <h1>Environment</h1>
+                    <h1>Environments</h1>
+                </section>
+
+                <section>
+                    <h1>Environments: goal</h1>
+                    <h3>easily toggle between a dev &amp; production environment</h3>
+                </section>
+
+                <section>
+                    <h1>Environments: tools</h1>
+                    <h3>Grunt</h3>
+                </section>
+
+                <section>
+                    <h1>build targets</h1>
+                    <pre class="fragment"><code> $ > grunt build:dev</code></pre>
+                    <div class="fragment"><pre><code> # jshint:     code quality
+ # clean:      remove build directory
+ # compass:    Sass -> CSS (unminified)
+ # versioning: generate CSS/JS config file*
+ # copy:       copies necessary assets
+ # clean:      remove temporary build directories</code></pre></div>
+
+                    <pre class="fragment"><code> $ > grunt build:prod</code></pre>
+                    <div class="fragment"><pre><code> # jshint:     code quality
+ # clean:      remove build directory
+ # compass:    Sass -> CSS (unminified)
+ # uglify:     minify and concatenate JS
+ # cssmin:     minify CSS
+ # versioning: hash min/concat CSS/JS and generate config file*
+ # copy:       copies necessary assets
+ # clean:      remove temporary build directories</code></pre></div>
+                <small class="fragment">*generates: assets.config.php (more info in a few slides)</small>
+                </section>
+
+                <section>
+                    <h1>build targets output</h1>
+                    <table>
+                        <tr>
+                            <th>:dev (all files)</th>
+                            <th>:prod (min/concat files)</th>
+                        </tr>
+                        <tr>
+                            <td><pre><code> public
+ .... static
+      .... css
+               main.css
+
+      .... js
+               file.js
+               file.js
+               file.js
+
+      .... fonts
+      .... img</code></pre></td>
+
+                            <td><pre><code> public
+ .... static
+      .... css
+               main.7f41197e.min.css
+
+      .... js
+               plugins.7409b19a.min.js
+               common.4923a32c.min.js
+               page.47b0990d.min.js
+
+      .... fonts
+      .... img</code></pre></td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h1 style="text-transform: lowercase;">assets.config.php</h1>
+                    <h3>output</h3>
+                    <table>
+                        <tr>
+                            <th>:dev</th>
+                            <th>:prod</th>
+                        </tr>
+                        <tr>
+                            <td><pre><code> return array(
+   'static.assets' => array(
+     'global' => array(
+       'css' => array(
+         '/static/css/main.css' ),
+       'js' => array(
+         '/static/js/file.js',
+         '/static/js/file.js',
+         '/static/js/file.js' )
+     ),
+     ...
+   )
+ );</code></pre></td>
+
+                            <td><pre><code> return array(
+   'static.assets' => array(
+     'global' => array(
+       'css' => array(
+         '/static/css/main.7f41197e.min.css' ),
+       'js' => array(
+         '/static/js/plugins.7409b19a.min.js',
+         '/static/js/common.4923a32c.min.js',
+         '/static/js/page.47b0990d.min.js' )
+     ),
+     ...
+   )
+ );</code></pre></td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h1 style="text-transform: lowercase;">assets.config.php</h1>
+                    <h3>usage</h3>
+                    <pre><code> $this->versionedAsset()->render( 'global' );</code></pre>
+                    <br>
+
+                    <div class="fragment">
+                        <h3>output</h3>
+                        <pre><code> &lt;!-- dev --&gt;
+ &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
+ &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
+ &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
+
+ &lt;!-- prod --&gt;
+ &lt;script src="/static/js/plugins.7409b19a.min.js"&gt;&lt;/script&gt;
+ &lt;script src="/static/js/common.4923a32c.min.js"&gt;&lt;/script&gt;</code></pre>
+                    </div>
                 </section>
 
                 <section>
@@ -191,16 +337,25 @@
                     <h1>Debugging</h1>
                 </section>
 
+                <section data-background="img/bug.png"></section>
+
                 <section>
                     <h3>5.</h3>
                     <h1>Testing</h1>
                 </section>
 
+                <section>
+                    <h1>Questions?</h1>
+                    <p class="footnote">
+                        <small><a href="http://fabien-d.github.io">Fabien Doiron</a> / <a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></small>
+                    </p>
+                </section>
+
             </div>
         </div>
 
-        <script src="lib/js/head.min.js"></script>
-        <script src="js/reveal.min.js"></script>
+        <script src="../common/lib/js/head.min.js"></script>
+        <script src="../common/js/reveal.min.js"></script>
 
         <script>
 
@@ -221,12 +376,12 @@
 
                 // Optional libraries used to extend on reveal.js
                 dependencies: [
-                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    { src: '../common/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../common/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
                 ]
             });
 
