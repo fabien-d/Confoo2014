@@ -99,7 +99,7 @@
                 </section>
 
                 <section data-background="img/crated.jpg">
-                    <h1>5 reasons</h1>
+                    <h1>3 reasons</h1>
                     <h3>we use build tools</h3>
                 </section>
 
@@ -158,13 +158,10 @@
  # grunt*</code></pre></div>
                     <pre class="fragment"><code> $ > grunt build</code></pre>
                     <div class="fragment"><pre><code> # linting
- # clean
  # compass
  # uglify
  # cssmin
  # versioning
- # copy
- # clean
  # ascii</code></pre></div>
                 </section>
 
@@ -200,7 +197,7 @@
                 </section>
 
                 <section>
-                    <h3>3.</h3>
+                    <h3>3A.</h3>
                     <h1>Environments</h1>
                 </section>
 
@@ -233,7 +230,7 @@
  # versioning: hash min/concat CSS/JS and generate config file*
  # copy:       copies necessary assets
  # clean:      remove temporary build directories</code></pre></div>
-                <small class="fragment">*generates: assets.config.php (more info in a few slides)</small>
+                <small class="fragment">*generates: assets.config.json (more info in a few slides)</small>
                 </section>
 
                 <section>
@@ -244,7 +241,7 @@
                             <th>:prod (min/concat files)</th>
                         </tr>
                         <tr>
-                            <td><pre><code> public
+                            <td class="fragment"><pre><code> public
  .... static
       .... css
                main.css
@@ -252,12 +249,14 @@
       .... js
                file.js
                file.js
-               file.js
+               home1.js
+               home2.js
+               &hellip;
 
       .... fonts
       .... img</code></pre></td>
 
-                            <td><pre><code> public
+                            <td class="fragment"><pre><code> public
  .... static
       .... css
                main.7f41197e.min.css
@@ -265,83 +264,145 @@
       .... js
                plugins.7409b19a.min.js
                common.4923a32c.min.js
-               page.47b0990d.min.js
+               home.47b0990d.min.js
 
       .... fonts
-      .... img</code></pre></td>
+      .... img
+
+
+</code></pre></td>
                         </tr>
                     </table>
                 </section>
 
                 <section>
-                    <h1 style="text-transform: lowercase;">assets.config.php</h1>
-                    <h3>output</h3>
+                    <h1 style="text-transform: lowercase;">assets.config.json</h1>
                     <table>
                         <tr>
                             <th>:dev</th>
                             <th>:prod</th>
                         </tr>
                         <tr>
-                            <td><pre><code> return array(
-   'static.assets' => array(
-     'global' => array(
-       'css' => array(
-         '/static/css/main.css' ),
-       'js' => array(
-         '/static/js/file.js',
-         '/static/js/file.js',
-         '/static/js/file.js' )
-     ),
-     ...
-   )
- );</code></pre></td>
+                            <td class="fragment"><pre><code> { "staticAssets": {
+     "global": {
+       "css": [ '~/main.css' ],
+       "js" : [
+         '~/file.js',
+         '~/file.js', &hellip;
+       ]
+     },
+     "home": {
+       "css": []
+       "js" : [
+         '~/home1.js',
+         '~/home2.js'
+       ]
+     }, &hellip;
+   }
+ }</code></pre></td>
 
-                            <td><pre><code> return array(
-   'static.assets' => array(
-     'global' => array(
-       'css' => array(
-         '/static/css/main.7f41197e.min.css' ),
-       'js' => array(
-         '/static/js/plugins.7409b19a.min.js',
-         '/static/js/common.4923a32c.min.js',
-         '/static/js/page.47b0990d.min.js' )
-     ),
-     ...
-   )
- );</code></pre></td>
+                            <td class="fragment"><pre><code> { "staticAssets": {
+     "global": {
+       "css": [ '~/main.7f41197e.min.css' ],
+       "js" : [
+         '~/plugins.7409b19a.min.js',
+         '~/common.4923a32c.min.js', &hellip;
+       ]
+     },
+     "home": {
+       "css": []
+       "js" : [ '~/home.47b0990d.min.js' ]
+     }, &hellip;
+   }
+ }
+
+
+
+</code></pre></td>
                         </tr>
                     </table>
+                    <pre class="fragment"><code>~ = path e.g. '/static/js', '/static/css'</code></pre>
                 </section>
 
                 <section>
-                    <h1 style="text-transform: lowercase;">assets.config.php</h1>
+                    <h1 style="text-transform: lowercase;">assets.config.json</h1>
                     <h3>usage</h3>
-                    <pre><code> $this->versionedAsset()->render( 'global' );</code></pre>
+                    <pre><code>&lt;?php $this->versionedAsset()->render( 'global' ); ?&gt;</code></pre>
                     <br>
 
                     <div class="fragment">
                         <h3>output</h3>
                         <pre><code> &lt;!-- dev --&gt;
+ &lt;link rel="stylesheet" href="/static/css/main.css">
+ &hellip;
  &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
  &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
- &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
+ &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;</code></pre>
 
- &lt;!-- prod --&gt;
+                        <pre><code> &lt;!-- prod --&gt;
+ &lt;link rel="stylesheet" href="/static/css/main.7f41197e.min.css">
+ &hellip;
  &lt;script src="/static/js/plugins.7409b19a.min.js"&gt;&lt;/script&gt;
  &lt;script src="/static/js/common.4923a32c.min.js"&gt;&lt;/script&gt;</code></pre>
                     </div>
                 </section>
 
                 <section>
-                    <h3>4.</h3>
+                    <h3>3B.</h3>
                     <h1>Debugging</h1>
+                </section>
+
+                <section>
+                    <h1>Debugging: goal</h1>
+                    <h3>effectively debug errors</h3>
+                </section>
+
+                <section>
+                    <h2>debugging [ compiled, ] concatenated, minified code is hard</h2>
                 </section>
 
                 <section data-background="img/bug.png"></section>
 
                 <section>
-                    <h3>5.</h3>
-                    <h1>Testing</h1>
+                    <h1>Our approach</h1>
+                    <h3>when a bug is found/reported</h3>
+                </section>
+
+                <section>
+                    <h3>1.</h3>
+                    <h1>build dev environment</h1>
+                    <ul>
+                        <li class="fragment">reproduce the error</li>
+                        <li class="fragment">rule out minification error</li>
+                        <li class="fragment">use devtools on source files</li>
+                        <li class="fragment">update/add unit, regression tests</li>
+                        <li class="fragment">generally all you need</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3>2.</h3>
+                    <h1>build prod environment</h1>
+                    <ul>
+                        <li class="fragment">reproduce the error</li>
+                        <li class="fragment">use devtools with source maps</li>
+                        <li class="fragment">still have access to source files</li>
+                        <li class="fragment">easier to debug than on the live site</li>
+                        <li class="fragment">update/add unit, regression tests</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>Recap</h1>
+                    <ul>
+                        <li>being a front-end developer is hard</li>
+                        <li>build tools make you awesome</li>
+                        <li>automate the repetitive tasks</li>
+                        <li>frictionless project setup</li>
+                        <li>reproduce output every time</li>
+                        <li>access to dev and production environments locally</li>
+                        <li>take the stress out of debugging</li>
+                    </ul>
                 </section>
 
                 <section>

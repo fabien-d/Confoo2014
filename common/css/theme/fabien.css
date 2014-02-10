@@ -77,7 +77,8 @@ body {
   margin: 0;
 }
 
-.reveal pre.fragment {
+.reveal pre.fragment,
+.reveal li.fragment {
   margin-bottom: 0;
 }
 
