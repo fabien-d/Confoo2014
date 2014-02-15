@@ -104,10 +104,102 @@
                 </section>
 
                 <section>
-                    <h1>Reasons to drop jQuery</h1>
+                    <h1>jQuery: pros</h1>
                     <ul>
-                        <li class="fragment"></li>
+                        <li class="fragment">tested and proven</li>
+                        <li class="fragment">large community</li>
+                        <li class="fragment">filesize is reasonable</li>
                     </ul>
+                </section>
+
+                <section>
+                    <h1>jQuery: cons</h1>
+                    <ul>
+                        <li class="fragment">bloat, can be more than you need</li>
+                        <li class="fragment">native support on the rise</li>
+                        <li class="fragment">can lead to a hard dependency</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h1>abstraction</h1>
+                    <blockquote><p>&ldquo;hide all the unwanted and not needed information and provide only that which is needed&rdquo;</p></blockquote>
+                </section>
+
+                <section>
+                    <h1>in other words</h1>
+                    <p>Write your own API do not rely on someone elses</p>
+                </section>
+
+                <section>
+                    <h1>before we continue</h1>
+                    <p>Does not mean you have to write a new library or framework&hellip;</p>
+                    <p>That's been done</p>
+                </section>
+
+                <section>
+                    <h1>write code that is interchangeable</h1>
+                </section>
+
+                <section>
+                    <h2>basic code</h2>
+                    <pre><code> $( '.conference' ).addClass( 'confoo2014' );</code></pre>
+                </section>
+
+                <section>
+                    <h2>API w/ jQuery</h2>
+                    <pre><code> var myui = {};
+
+ /**
+  * Return first matching element
+  * @requires jQuery &hellip; */
+ myui.qs = function querySelector ( selector ) {
+     return $( selector )[ 0 ];
+ };
+
+ /**
+  * Add class to passed element
+  * @requires jQuery &hellip; */
+ myui.addClass = function addClass ( el, klass ) {
+     $( el ).addClass( klass );
+ };</code></pre>
+
+                    <div class="fragment">
+                        <h3>code base</h3>
+                        <pre><code> var el = myui.qs( '.conference' );
+ myui.addClass( el, 'confoo2014' );
+
+ console.log( el );
+ // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>API w/ Native</h2>
+                    <pre><code> var myui = {};
+
+ /**
+  * Return first matching element
+  * @requires N/A &hellip; */
+ myui.qs = function querySelector ( selector ) {
+     return document.querySelector( selector );
+ };
+
+ /**
+  * Add class to passed element
+  * @requires N/A &hellip; */
+ myui.addClass = function addClass ( el, klass ) {
+     el.classList.add( klass );
+ };</code></pre>
+
+                    <div class="fragment">
+                        <h3>code base</h3>
+                        <pre><code> var el = myui.qs( '.conference' );
+ myui.addClass( el, 'confoo2014' );
+
+ console.log( el );
+ // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre>
+                    </div>
                 </section>
 
                 <section>
