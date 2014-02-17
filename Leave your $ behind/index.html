@@ -33,18 +33,19 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section data-background="img/automation.jpg">
-                    <h1>Leave your '$' behind</h1>
+                    <h1>Leave your &lsquo;$&rsquo; behind</h1>
                     <p class="footnote">
                         <small><a href="http://fabien-d.github.io">Fabien Doiron</a> / <a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></small>
                     </p>
                 </section>
 
                 <section>
-                    <h1>I'm not here to tell you to stop using jQuery</h1>
+                    <h3 class="fragment">I am not here to tell you to</h3>
+                    <h1>stop using jQuery</h1>
                 </section>
 
                 <section data-background="img/pingpong.jpg">
-                    <h1>I work for COMPANY</h1>
+                    <h1>I work for Crated</h1>
                     <h3>software developer, front-end</h3>
                     <img src="img/avatar.jpg" class="avatar">
                     <p><a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></p>
@@ -53,15 +54,15 @@
                     </p>
                 </section>
 
-                <section>
-                    <h1>JavaScript makes me mad</h1>
+                <section data-background="img/sad.jpeg">
+                    <h2 class="footnote" style="background: rgba(0,0,0,.6); padding: 5px 0 10px">&ldquo;One cries because one is sad.<br>For example, I cry because browsers are inconsistent and that makes me sad.&rdquo;</h2>
                 </section>
 
                 <section>
                     <h1>server side languages</h1>
                     <ul>
                         <li class="fragment">compiled on the server</li>
-                        <li class="fragment">limited only by the language(s) on the server</li>
+                        <li class="fragment">limited only by what is on the server</li>
                         <li class="fragment">works here, works everywhere</li>
                     </ul>
                 </section>
@@ -149,12 +150,12 @@
 
                 <section>
                     <h2>basic example</h2>
-                    <pre><code> $( '.conference' ).addClass( 'confoo2014' );</code></pre>
+                    <pre><code class="javascript"> $( '.conference' ).addClass( 'confoo2014' );</code></pre>
                 </section>
 
                 <section>
                     <h2>API w/ jQuery</h2>
-                    <pre><code> var myui = {};
+                    <pre><code class="javascript"> var myui = {};
 
  /**
   * Return first matching element
@@ -172,7 +173,7 @@
 
                     <div class="fragment">
                         <h3>code base</h3>
-                        <pre><code> var el = myui.qs( '.conference' );
+                        <pre><code class="javascript"> var el = myui.qs( '.conference' );
  myui.addClass( el, 'confoo2014' );
 
  console.log( el );
@@ -182,7 +183,7 @@
 
                 <section>
                     <h2>API w/ Native</h2>
-                    <pre><code> var myui = {};
+                    <pre><code class="javascript"> var myui = {};
 
  /**
   * Return first matching element
@@ -200,13 +201,118 @@
 
                     <div class="fragment">
                         <h3>code base</h3>
-                        <pre><code> var el = myui.qs( '.conference' );
+                        <pre><code class="javascript"> var el = myui.qs( '.conference' );
  myui.addClass( el, 'confoo2014' );
 
  console.log( el );
  // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre>
                     </div>
                 </section>
+
+                <section>
+                    <h2>AJAX example</h2>
+                    <pre><code class="javascript"> function xhrSuccess ( resp ) {
+     console.log( resp );
+ }
+
+ function xhrError ( req, status, err ) {
+     console.log( 'something went wrong', status, err );
+ }
+
+ $.ajax( 'end/point', {
+     type: 'GET',
+     dataType: 'json',
+     success: xhrSuccess,
+     error: xhrError
+ } );</code></pre>
+                </section>
+
+                <!--<section>
+                    <h2>AJAX example</h2>
+                    <pre><code class="javascript"> function xhrSuccess ( resp ) {
+     console.log( resp );
+ }
+
+ function xhrError ( req, status, err ) {
+     console.log( 'something went wrong', status, err );
+ }
+
+ var req = $.ajax( 'end/point', {
+     type: 'GET',
+     dataType: 'json'
+ } );
+
+ req.done( xhrSuccess );
+ req.fail( xhrError );
+ req.always( function () {} );</code></pre>
+                </section>-->
+
+                <section>
+                    <h2>API w/ jQuery</h2>
+                    <pre><code class="javascript"> /**
+  * Return jQuery XMLHttpRequest object
+  * @requires jQuery &hellip; */
+ myui.xhr = function xhr ( url, options, success, failure ) {
+     return $.ajax( url, {
+         type: options.type || 'GET',
+         dataType: options.dataType || 'json',
+         success: success,
+         error: failure
+     } );
+ };</code></pre>
+
+                    <div class="fragment">
+                        <h3>code base</h3>
+                        <pre><code class="javascript"> var xhr = myui.xhr( 'end/point', null, function () {}, function () {} );</code></pre>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>API w/ Native</h2>
+                    <pre><code class="javascript"> /**
+  * Return XMLHttpRequest object
+  * @requires N/A &hellip; */
+ myui.xhr = function xhr ( url, options, success, failure ) {
+     var request = new XMLHttpRequest();
+     request.open( url, options.type || 'GET', true );
+
+     request.onload = function xhrOnLoad () {
+         if ( request.status &gt;= 200 &amp;&amp; request.status &lt; 400 )
+             success( request.responseText );
+     };
+
+     request.onerror = function xhrOnError () { failure( request ); };
+
+     request.send();
+     return request;
+ };</code></pre>
+
+                    <div class="fragment">
+                        <h3>code base</h3>
+                        <pre><code class="javascript"> myui.xhr( 'end/point', null, function () {}, function () {} );</code></pre>
+                    </div>
+                </section>
+
+                <!--<section>
+                    <h2>API w/ jQuery + promises</h2>
+                    <pre><code class="javascript"> /**
+  * Return jQuery XMLHttpRequest object
+  * @requires jQuery &hellip; */
+ myui.xhr = function xhr ( url, options ) {
+     return $.ajax( url, {
+         type: options.type || 'GET',
+         dataType: options.dataType || 'json'
+     } );
+ };</code></pre>
+
+                    <div class="fragment">
+                        <h3>code base</h3>
+                        <pre><code class="javascript"> myui.xhr( 'some/endpoint', null );
+ xhr.done( function () {} );
+ xhr.fail( function () {} );
+ xhr.always( function () {} );</code></pre>
+                    </div>
+                </section>-->
 
                 <section>
                     <h1>Thanks</h1>
@@ -247,6 +353,7 @@
                     { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
                     { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    //, { src: '../common/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
                 ]
             });
 
