@@ -178,6 +178,10 @@
                     <h3>reproducible results regardless of developer setup/workflow</h3>
                 </section>
 
+                <section data-background="#BC0621">
+                    <img src="img/works-on-my-machine.png">
+                </section>
+
                 <section>
                     <h1>Project output: tools</h1>
                     <h3>Grunt</h3>
@@ -443,8 +447,8 @@
                     { src: '../common/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }//,
-                    //{ src: '../common/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: '../common/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
                 ]
             });
 
