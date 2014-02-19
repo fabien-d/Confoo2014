@@ -213,12 +213,13 @@
                 </section>
 
                 <section>
-                    <h1>build targets</h1>
+                    <h3>1 of 4</h3>
+                    <h2>build targets</h2>
                     <pre class="fragment"><code> $ > grunt build:dev</code></pre>
                     <div class="fragment"><pre><code> # jshint:     code quality
  # clean:      remove build directory
  # compass:    Sass -> CSS (unminified)
- # versioning: generate CSS/JS config file*
+ # versioning: generate CSS/JS config file
  # copy:       copies necessary assets
  # clean:      remove temporary build directories</code></pre></div>
 
@@ -228,14 +229,14 @@
  # compass:    Sass -> CSS (unminified)
  # uglify:     minify and concatenate JS
  # cssmin:     minify CSS
- # versioning: hash min/concat CSS/JS and generate config file*
+ # versioning: hash min/concat CSS/JS and generate config file
  # copy:       copies necessary assets
  # clean:      remove temporary build directories</code></pre></div>
-                <small class="fragment">*generates: assets.config.json (more info in a few slides)</small>
                 </section>
 
                 <section>
-                    <h1>build targets output</h1>
+                    <h3>2 of 4</h3>
+                    <h2>output structure</h2>
                     <table>
                         <tr>
                             <th>:dev (all files)</th>
@@ -248,8 +249,8 @@
                main.css
 
       .... js
-               file.js
-               file.js
+               file1.js
+               file2.js
                home1.js
                home2.js
                &hellip;
@@ -277,19 +278,62 @@
                 </section>
 
                 <section>
-                    <h1 style="text-transform: lowercase;">assets.config.json</h1>
+                    <h3>3 of 4</h3>
+                    <h2>configuration file :dev</h2>
+                    <div><pre><code class="javascript"> { "staticAssets": {
+
+     "global": {
+       "css": [ '/static/css/main.css' ],
+       "js" : [ '/static/js/file1.js', '/static/js/file2.js', &hellip; ]
+     },
+
+     "home": {
+       "css": []
+       "js" : [ 'static/js/home1.js', '/static/js/home2.js' ]
+     },
+
+     "anotherKey": { &hellip; }
+
+   }
+ }
+
+</code></pre></div>
+                </section>
+
+                <section>
+                    <h3>3 of 4</h3>
+                    <h2>configuration file :prod</h2>
+                    <div><pre><code class="javascript"> { "staticAssets": {
+
+     "global": {
+       "css": [ '/static/css/main.7f41197e.min.css' ],
+       "js" : [ '/static/js/plugins.7409b19a.min.js',
+                '/static/js/common.4923a32c.min.js', &hellip; ]
+     },
+
+     "home": {
+       "css": []
+       "js" : [ 'static/js/home.47b0990d.min.js' ]
+     },
+
+     "anotherKey": { &hellip; }
+
+   }
+ }</code></pre></div>
+                </section>
+
+                <!--<section>
+                    <h3>3 of 4</h3>
+                    <h2>configuration file</h2>
                     <table>
                         <tr>
-                            <th>:dev</th>
-                            <th>:prod</th>
-                        </tr>
-                        <tr>
-                            <td class="fragment"><pre><code> { "staticAssets": {
+                            <td class="fragment"><pre><code class="javascript"> /* grunt build:dev */
+ { "staticAssets": {
      "global": {
        "css": [ '~/main.css' ],
        "js" : [
-         '~/file.js',
-         '~/file.js', &hellip;
+         '~/file1.js',
+         '~/file2.js', &hellip;
        ]
      },
      "home": {
@@ -323,11 +367,11 @@
                         </tr>
                     </table>
                     <pre class="fragment"><code>~ = path e.g. '/static/js', '/static/css'</code></pre>
-                </section>
+                </section>-->
 
                 <section>
-                    <h1 style="text-transform: lowercase;">assets.config.json</h1>
-                    <h3>usage</h3>
+                    <h3>4 of 4</h3>
+                    <h2>usage</h2>
                     <pre><code>&lt;?php $this->versionedAsset()->render( 'global' ); ?&gt;</code></pre>
                     <br>
 
@@ -335,9 +379,8 @@
                         <h3>output :dev</h3>
                         <pre><code> &lt;link rel="stylesheet" href="/static/css/main.css">
  &hellip;
- &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
- &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
- &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;</code></pre>
+ &lt;script src="/static/js/file1.js"&gt;&lt;/script&gt;
+ &lt;script src="/static/js/file2.js"&gt;&lt;/script&gt; &hellip;</code></pre>
 
                         <br>
                         <h3>output :prod</h3>
