@@ -143,9 +143,6 @@
                     <ul>
                         <li>Phing</li>
                         <li>Grunt</li>
-                        <li>Composer</li>
-                        <li>NPM</li>
-                        <li>Bower</li>
                     </ul>
                 </section>
 
@@ -335,20 +332,24 @@
                     <br>
 
                     <div class="fragment">
-                        <h3>output</h3>
-                        <pre><code> &lt;!-- dev --&gt;
- &lt;link rel="stylesheet" href="/static/css/main.css">
+                        <h3>output :dev</h3>
+                        <pre><code> &lt;link rel="stylesheet" href="/static/css/main.css">
  &hellip;
  &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
  &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;
  &lt;script src="/static/js/file.js"&gt;&lt;/script&gt;</code></pre>
 
-                        <pre><code> &lt;!-- prod --&gt;
- &lt;link rel="stylesheet" href="/static/css/main.7f41197e.min.css">
+                        <br>
+                        <h3>output :prod</h3>
+                        <pre><code> &lt;link rel="stylesheet" href="/static/css/main.7f41197e.min.css">
  &hellip;
  &lt;script src="/static/js/plugins.7409b19a.min.js"&gt;&lt;/script&gt;
  &lt;script src="/static/js/common.4923a32c.min.js"&gt;&lt;/script&gt;</code></pre>
                     </div>
+                </section>
+
+                <section>
+                    <h1>DEMO</h1>
                 </section>
 
                 <section>
@@ -448,7 +449,7 @@
                     { src: '../common/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: '../common/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
                     { src: '../common/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-                    //, { src: '../common/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // , { src: '../common/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
                 ]
             });
 
