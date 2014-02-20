@@ -33,7 +33,7 @@
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
                 <section data-background="img/automation.jpg">
-                    <h1>What makes me &ldquo;Grunt&rdquo;<small>*</small>?</h1>
+                    <h1>what makes me &ldquo;Grunt&rdquo;<small>*</small>?</h1>
                     <h3>developer happiness courtesy of build tools</h3>
                     <p class="footnote">
                         <small>*applies to any build tool</small><br>
@@ -42,7 +42,7 @@
                 </section>
 
                 <section data-background="img/crazy.gif">
-                    <h1>no build tool</h1>
+                    <h1>project with no build tools</h1>
                     <h3>make me go something something</h3>
                 </section>
 
@@ -56,9 +56,9 @@
                     </p>
                 </section>
 
-                <section data-background="img/so_easy.gif">
+                <section>
                     <h3>when I got into development</h3>
-                    <h2>HTML / CSS / JS / FTP / Browser</h2>
+                    <h2>HTML / CSS / JS / FTP / browser</h2>
                 </section>
 
                 <!--<section data-background="img/so_hard.gif">
@@ -93,13 +93,13 @@
                     </div>
                 </section>-->
 
-                <section data-background="img/so_hard.gif">
+                <section>
                     <h3>today</h3>
-                    <h2>Linting / Concatenation / Minification / Versioning / Preprocessors / Testing / Coverage / Dependency management / Continuous deployment / Version control / Frameworks / Libraries&hellip;</h2>
+                    <h2>linting / concatenation / minification / versioning / preprocessors / testing / coverage / dependency management / continuous deployment / version control / frameworks / libraries&hellip;</h2>
                 </section>
 
                 <section data-background="img/crated.jpg">
-                    <h1>3 reasons</h1>
+                    <h1>4 reasons</h1>
                     <h3>we use build tools</h3>
                 </section>
 
@@ -130,16 +130,16 @@
 
                 <section>
                     <h3>1.</h3>
-                    <h1>Project setup</h1>
+                    <h1>project setup</h1>
                 </section>
 
                 <section>
-                    <h1>Project setup: goal</h1>
-                    <h3>coding ready in under 5 mins</h3>
+                    <h1>project setup: goal</h1>
+                    <h3>coding ready in minutes</h3>
                 </section>
 
                 <section>
-                    <h1>Project setup: tools</h1>
+                    <h1>project setup: tools</h1>
                     <ul>
                         <li>Phing</li>
                         <li>Grunt</li>
@@ -147,7 +147,7 @@
                 </section>
 
                 <section>
-                    <h1>Project setup</h1>
+                    <h1>project setup</h1>
                     <pre><code> $ > phing proj:build</code></pre>
                     <div class="fragment"><pre><code> # dependency management: composer, npm, bower
  # set environment:       build/environment properties, autoloader
@@ -167,11 +167,11 @@
 
                 <section>
                     <h3>2.</h3>
-                    <h1>Project output</h1>
+                    <h1>project output</h1>
                 </section>
 
                 <section>
-                    <h1>Project output: goal</h1>
+                    <h1>project output: goal</h1>
                     <h3>reproducible results regardless of developer setup/workflow</h3>
                 </section>
 
@@ -180,41 +180,94 @@
                 </section>
 
                 <section>
-                    <h1>Project output: tools</h1>
+                    <h1>project output: tools</h1>
                     <h3>Grunt</h3>
                 </section>
 
                 <section>
-                    <h1>CSS &amp; JavaScript</h1>
-                    <h3>abstract settings to the build tool</h3>
+                    <h1>common issue: Sass</h1>
+                    <h3>user settings</h3>
+
+                    <table>
+                        <tr class="fragment">
+                            <th style="width: 35%; text-align: left; vertical-align: middle; padding-right: 35px">command line</th>
+                            <td style="text-align: left; vertical-align: middle;"><pre><code class="bash">$ > sass input.scss output.css</code></pre></td>
+                        </tr>
+                        <tr class="fragment">
+                            <th style="text-align: left; vertical-align: middle;">GUI</th>
+                            <td style="text-align: left; vertical-align: middle;">
+                                <img src="img/codekit.png" height="65">
+                                <img src="img/scout.png" height="65">
+                            </td>
+                        </tr>
+                        <tr class="fragment">
+                            <th style="text-align: left; vertical-align: middle;">results</th>
+                            <td style="text-align: left; vertical-align: middle;">??</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h1>using build tools</h1>
+                    <h3>abstract settings</h3>
+
+                    <table>
+                        <tr class="fragment">
+                            <th style="width: 35%; text-align: left; vertical-align: middle; padding-right: 35px">command line</th>
+                            <td style="text-align: left; vertical-align: middle;"><pre><code class="bash">$ > grunt compass</code></pre></td>
+                        </tr>
+                        <tr class="fragment">
+                            <th style="text-align: left; vertical-align: middle;">IDE / text editor</th>
+                            <td style="text-align: left; vertical-align: middle;">
+                                <img src="img/sublime.png" height="125">
+                                <img src="img/phpstorm.png" height="125">
+                            </td>
+                        </tr>
+                        <tr class="fragment">
+                            <th style="text-align: left; vertical-align: middle;">results</th>
+                            <td style="text-align: left; vertical-align: middle;">the same</td>
+                        </tr>
+                    </table>
+                </section>
+
+                <!--
+                    <p class="fragment">command line, IDE or&hellip; result is the same</p>
                     <pre class="fragment"><code> $ > grunt [ compass : cssmin : versioning ]</code></pre>
                     <div class="fragment"><pre><code> # compass:    Sass -> CSS
  # cssmin:     minify outputted CSS
  # versioning: append MD5 hash to filename</code></pre></div>
                     <pre class="fragment"><code> $ > grunt [ uglify : versioning ]</code></pre>
                     <div class="fragment"><pre><code> # uglify:     concat &amp; minify JavaScript
- # versioning: append MD5 hash to filename</code></pre></div>
-                    <p class="fragment">command line, IDE or&hellip; result is the same</p>
+ # versioning: append MD5 hash to filename</code></pre></div>-->
+
+                <section>
+                    <h3>3.</h3>
+                    <h1>environments</h1>
                 </section>
 
                 <section>
-                    <h3>3A.</h3>
-                    <h1>Environments</h1>
-                </section>
-
-                <section>
-                    <h1>Environments: goal</h1>
+                    <h1>environments: goal</h1>
                     <h3>easily toggle between a dev &amp; production environment</h3>
                 </section>
 
                 <section>
-                    <h1>Environments: tools</h1>
+                    <h1>environments: tools</h1>
                     <h3>Grunt</h3>
                 </section>
 
                 <section>
+                    <h1>4 steps</h1>
+                    <ol>
+                        <li class="fragment">build task</li>
+                        <li class="fragment">populates the output directory</li>
+                        <li class="fragment">generates a static assets configuration file</li>
+                        <li class="fragment">configuration is used to include assets in the layout</li>
+                    </ol>
+                </section>
+
+                <section>
                     <h3>1 of 4</h3>
-                    <h2>build targets</h2>
+                    <h2>build task</h2>
                     <pre class="fragment"><code> $ > grunt build:dev</code></pre>
                     <div class="fragment"><pre><code> # jshint:     code quality
  # clean:      remove build directory
@@ -236,7 +289,7 @@
 
                 <section>
                     <h3>2 of 4</h3>
-                    <h2>output structure</h2>
+                    <h2>output directory</h2>
                     <table>
                         <tr>
                             <th>:dev (all files)</th>
@@ -280,6 +333,52 @@
                 <section>
                     <h3>3 of 4</h3>
                     <h2>configuration file :dev</h2>
+                    <div><pre><code class="php"> &lt;?php
+ return array( 'static.assets' => array(
+
+     'global' => array(
+         'css' => array( '/static/css/main.css' ),
+         'js'  => array( '/static/js/file1.js', '/static/js/file2.js', &hellip; )
+     ),
+
+     'home' => array(
+         'css' => array(),
+         'js'  => array( 'static/js/home1.js', '/static/js/home2.js' )
+     ),
+
+     'anotherKey' => array( &hellip; )
+
+ ) );
+
+</code></pre></div>
+                </section>
+
+                <section>
+                    <h3>3 of 4</h3>
+                    <h2>configuration file :prod</h2>
+                    <div><pre><code class="php"> &lt;?php
+ return array( 'static.assets' => array(
+
+     'global' => array(
+         'css' => array( '/static/css/main.7f41197e.min.css' ),
+         'js'  => array( '/static/js/plugins.7409b19a.min.js',
+                         '/static/js/common.4923a32c.min.js', &hellip; )
+     ),
+
+     'home' => array(
+         'css' => array(),
+         'js'  => array( 'static/js/home.47b0990d.min.js' )
+     ),
+
+     'anotherKey' => array( &hellip; )
+
+ ) );
+</code></pre></div>
+                </section>
+
+               <!-- <section>
+                    <h3>3 of 4</h3>
+                    <h2>configuration file :dev</h2>
                     <div><pre><code class="javascript"> { "staticAssets": {
 
      "global": {
@@ -320,7 +419,7 @@
 
    }
  }</code></pre></div>
-                </section>
+                </section>-->
 
                 <!--<section>
                     <h3>3 of 4</h3>
@@ -381,8 +480,8 @@
  &hellip;
  &lt;script src="/static/js/file1.js"&gt;&lt;/script&gt;
  &lt;script src="/static/js/file2.js"&gt;&lt;/script&gt; &hellip;</code></pre>
-
-                        <br>
+                    </div>
+                    <div class="fragment">
                         <h3>output :prod</h3>
                         <pre><code> &lt;link rel="stylesheet" href="/static/css/main.7f41197e.min.css">
  &hellip;
@@ -392,16 +491,16 @@
                 </section>
 
                 <section>
-                    <h1>DEMO</h1>
+                    <h1>demo</h1>
                 </section>
 
                 <section>
-                    <h3>3B.</h3>
-                    <h1>Debugging</h1>
+                    <h3>4.</h3>
+                    <h1>debugging</h1>
                 </section>
 
                 <section>
-                    <h1>Debugging: goal</h1>
+                    <h1>debugging: goal</h1>
                     <h3>effectively debug errors</h3>
                 </section>
 
@@ -409,10 +508,12 @@
                     <h2>debugging [ compiled, ] concatenated, minified code is hard</h2>
                 </section>
 
-                <section data-background="img/bug.png"></section>
+                <section data-background="img/bug.png">
+                    <h2 class="footnote" style="margin-top: 150px; background: rgba(255,0,0,.6); padding: 5px 0 10px">debugging in production scared me</h2>
+                </section>
 
                 <section>
-                    <h1>Our approach</h1>
+                    <h1>our approach</h1>
                     <h3>when a bug is found/reported</h3>
                 </section>
 
@@ -441,7 +542,7 @@
                 </section>
 
                 <section>
-                    <h1>Recap</h1>
+                    <h1>recap</h1>
                     <ul>
                         <li class="fragment">being a front-end developer is hard</li>
                         <li class="fragment">build tools make you awesome</li>
@@ -454,8 +555,8 @@
                 </section>
 
                 <section>
-                    <h1>Thanks</h1>
-                    <h3>Questions?</h3>
+                    <h1>thanks</h1>
+                    <h3>questions?</h3>
                     <p class="footnote">
                         <small><a href="http://fabien-d.github.io">Fabien Doiron</a> / <a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></small>
                     </p>
