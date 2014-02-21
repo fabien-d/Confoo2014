@@ -34,7 +34,7 @@
             <div class="slides">
                 <section data-background="img/buildtool.jpg">
                     <h1>what makes me &ldquo;Grunt&rdquo;<small>*</small>?</h1>
-                    <h3>developer happiness courtesy of build tools</h3>
+                    <h3>developer happiness courtesy of automation</h3>
                     <p class="footnote">
                         <small>*applies to any build tool</small><br>
                         <small><a href="http://fabien-d.github.io">Fabien Doiron</a> / <a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></small>
@@ -42,65 +42,87 @@
                 </section>
 
                 <section data-background="img/crazy.gif">
-                    <h1>project with no build tools</h1>
+                    <h1>project without automation</h1>
                     <h3>make me go something something</h3>
                 </section>
 
                 <section data-background="img/pingpong.jpg">
-                    <h1>I work for Crated</h1>
+                    <h1>I work on Crated</h1>
                     <h3>software developer, front-end</h3>
                     <img src="img/avatar.jpg" class="avatar">
                     <p><a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></p>
-                    <p class="footnote">
-                        <small><a href="http://canvaspop.com">CanvasPop</a> / <a href="http://developers.canvaspop.com">CanvasPop API</a> / <a href="http://dna11.com">DNA11</a> / <a href="http://crated.com">Crated</a></small>
+                </section>
+
+                <section data-background="img/pingpong.jpg">
+                    <p>
+                        <a href="http://www.canvaspop.com" style="margin: 0 15px;"><img src="img/cp-logo.png"></a>
+                        <a href="http://www.dna11.com" style="margin: 0 15px;"><img src="img/dna-logo.png"></a>
+                        <a href="http://www.crated.com" style="margin: 0 15px;"><img src="img/crated-logo.png"></a>
+                    </p>
+                    <p>
+                        <a href="http://developers.canvaspop.com" style="margin: 0 15px;"><img src="img/cpapi-logo.png"></a>
+                        <a href="http://remade.canvaspop.com" style="margin: 0 15px;"><img src="img/remade-logo.png"></a>
                     </p>
                 </section>
 
                 <section>
                     <h3>when I got into development</h3>
+                    <h2>front-end development was pretty simple</h2>
+                </section>
+
+                <section>
+                    <h3>typical tools</h3>
                     <h2>HTML / CSS / JS / FTP / browser</h2>
                 </section>
 
-                <!--<section data-background="img/so_hard.gif">
-                    <h3>present workflow</h3>
-                    <div class="fragment">
-                        <h2>HTML + CSS + JS</h2>
-                        <h3>HAML / JADE&hellip; + Sass / Less&hellip; + Coffee / Typescript&hellip;</h3>
-                    </div>
-                    <div class="fragment">
-                        <h2>Boilerplates + Frameworks + Libraries</h2>
-                        <h3>HTML5 Boilerplate / Twitter Bootstrap / Ember / Angular / Knockout / Backbone / jQuery / RequireJS&hellip;</h3>
-                    </div>
-                    <div class="fragment">
-                        <h2>VCS + Testing + Deps management&hellip;</h2>
-                        <h3>Git / SVN / Jasmine / Mocha / Qunit / Bower / NPM&hellip;</h3>
-                    </div>
-                </section>-->
-
-                <!--<section data-background="img/so_hard.gif">
-                    <h3>today</h3>
-                    <div class="fragment">
-                        <h2>Linting</h2>
-                        <h3>jshint / jslint / eslint&hellip;</h3>
-                    </div>
-                    <div class="fragment">
-                        <h2>Concat / Minify / Version</h2>
-                        <h3>UglifyJS / Closure / JSMin / JSPacker / YUI Compressor&hellip;</h3>
-                    </div>
-                    <div class="fragment">
-                        <h2>Tests / Code coverage</h2>
-                        <h3>Mocha / Jasmine / BDD / TDD / Blanket / Istanbul&hellip;</h3>
-                    </div>
-                </section>-->
+                <section>
+                    <h3>then something happened</h3>
+                    <h2>front-end development became complex</h2>
+                </section>
 
                 <section>
-                    <h3>today</h3>
-                    <h2>linting / concatenation / minification / versioning / preprocessors / testing / coverage / dependency management / continuous deployment / version control / frameworks / libraries&hellip;</h2>
+                    <h3>current typical tools</h3>
+                    <h2>linting / preprocessors / concatenation / minification / versioning / testing / coverage / dependency management / continuous deployment / version control / frameworks / libraries&hellip;</h2>
+                </section>
+
+                <section>
+                    <h2>stack overview</h2>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <th style="text-align: left;">devops:</th>
+                            <td style="text-align: left;">
+                                <a href="http://www.getchef.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/chef-logo.png" height="100"></a>
+                                <a href="http://www.vagrantup.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/vagrant-logo.png" height="100"></a>
+                            </td>
+                        </tr>
+                        <tr class="fragment">
+                            <th style="text-align: left;">back-end:</th>
+                            <td style="text-align: left;">
+                                <a href="http://www.phing.info/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/phing-logo.png"></a>
+                                <a href="http://framework.zend.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/zf2-logo.png" height="75"></a>
+                                <a href="https://getcomposer.org/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/composer-logo.png" height="100"></a>
+                            </td>
+                        </tr>
+                        <tr class="fragment">
+                            <th style="text-align: left;">front-end:</th>
+                            <td style="text-align: left;">
+                                <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png" height="125"></a>
+                                <a href="http://www.bower.io/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/bower-logo.png" height="125"></a>
+                                <a href="http://www.npmjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/npm-logo.png" height="75"></a>
+                            </td>
+                        </tr>
+                    </table>
                 </section>
 
                 <section data-background="img/crated.jpg">
                     <h1>4 reasons</h1>
-                    <h3>we use build tools</h3>
+                    <h3>we use build tools &amp; automation</h3>
+                    <p>
+                        <a href="http://www.phing.info/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/phing-logo.png"></a>
+                        <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png" height="125"></a>
+                    </p>
                 </section>
 
                 <section>
@@ -109,22 +131,22 @@
                 </section>
 
                 <section>
-                    <h1>what?</h1>
+                    <h2>what?</h2>
                     <h3>automation</h3>
                 </section>
 
                 <section>
-                    <h1>why?</h1>
+                    <h2>why?</h2>
                     <h3>automate what you have but don't want to do</h3>
                 </section>
 
                 <section>
-                    <h1>how?</h1>
+                    <h2>how?</h2>
                     <h3>configure a task once, run as often as you want</h3>
                 </section>
 
                 <section>
-                    <h1>who?</h1>
+                    <h2>who?</h2>
                     <h3>Grunt, Gulp, Phing, Make, Rake, Jake, Brunch, Ant&hellip;</h3>
                 </section>
 
@@ -134,32 +156,49 @@
                 </section>
 
                 <section>
-                    <h1>project setup: goal</h1>
+                    <h2>project setup: goal</h2>
                     <h3>coding ready in minutes</h3>
                 </section>
 
                 <section>
-                    <h1>project setup: tools</h1>
-                    <ul>
-                        <li>Phing</li>
-                        <li>Grunt</li>
-                    </ul>
+                    <h2>project setup: tools</h2>
+                    <br>
+                    <br>
+                    <table>
+                        <tr>
+                            <th style="text-align: left;">provision:</th>
+                            <td style="text-align: left;">
+                                <a href="http://www.vagrantup.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/vagrant-logo.png" height="100"></a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th style="text-align: left;">build tools:</th>
+                            <td style="text-align: left;">
+                                <a href="http://www.phing.info/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/phing-logo.png"></a>
+                                <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png" height="125"></a>
+                            </td>
+                        </tr>
+                    </table>
                 </section>
 
                 <section>
-                    <h1>project setup</h1>
-                    <pre><code> $ > phing proj:build</code></pre>
-                    <div class="fragment"><pre><code> # dependency management: composer, npm, bower
- # set environment:       build/environment properties, autoloader
- # database:              update, migrate
- # grunt*</code></pre></div>
-                    <pre class="fragment"><code> $ > grunt build</code></pre>
-                    <div class="fragment"><pre><code> # linting
- # compass
- # uglify
- # cssmin
- # versioning
- # ascii</code></pre></div>
+                    <h2>project setup</h2>
+                    <h3>in 3 easy steps</h3>
+                    <br>
+                    <pre class="fragment"><code class="bash"> $ > git clone || git pull
+     # get code from repository</code></pre>
+                    <pre class="fragment"><code class="bash"> $ > vagrant up
+     # provision local VM with chef</code></pre>
+                    <pre class="fragment"><code class="bash"> $ > phing proj:build
+     # get all dependencies with composer, npm and bower
+     # database migration using phinx
+     # runs `grunt build`</code></pre>
+                    <div class="fragment">
+                        <hr style="opacity:.3">
+                        <pre><code class="bash"> $ > grunt build
+     # linting, preprocessors, concat, minification, versioning
+     # and my personal favourite: ascii</code></pre>
+                    </div>
                 </section>
 
                 <section data-background="img/ascii.png">
@@ -171,7 +210,7 @@
                 </section>
 
                 <section>
-                    <h1>project output: goal</h1>
+                    <h2>project output: goal</h2>
                     <h3>reproducible results regardless of developer setup/workflow</h3>
                 </section>
 
@@ -180,13 +219,22 @@
                 </section>
 
                 <section>
-                    <h1>project output: tools</h1>
-                    <h3>Grunt</h3>
+                    <h2>project output: tools</h2>
+                    <br>
+                    <br>
+                    <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png"></a>
                 </section>
 
                 <section>
-                    <h1>common issue: Sass</h1>
+                    <h2>reduce the risk of
+                    <br>&ldquo;works on my machine&rdquo;<br>
+                    by abstracting the output settings from the user to the build tool</h2>
+                </section>
+
+                <section>
+                    <h2>example: compiling Sass into CSS</h2>
                     <h3>user settings</h3>
+                    <br>
 
                     <table>
                         <tr class="fragment">
@@ -196,20 +244,20 @@
                         <tr class="fragment">
                             <th style="text-align: left; vertical-align: middle;">GUI</th>
                             <td style="text-align: left; vertical-align: middle;">
-                                <img src="img/codekit.png" height="65">
+                                <img src="img/codekit.png" height="65">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <img src="img/scout.png" height="65">
                             </td>
                         </tr>
                         <tr class="fragment">
-                            <th style="text-align: left; vertical-align: middle;">results</th>
+                            <th style="text-align: left; vertical-align: middle;">result</th>
                             <td style="text-align: left; vertical-align: middle;">??</td>
                         </tr>
                     </table>
                 </section>
 
                 <section>
-                    <h1>using build tools</h1>
-                    <h3>abstract settings</h3>
+                    <h2>example: compiling Sass into CSS</h1>
+                    <h3>abstracted settings</h3>
 
                     <table>
                         <tr class="fragment">
@@ -219,12 +267,12 @@
                         <tr class="fragment">
                             <th style="text-align: left; vertical-align: middle;">IDE / text editor</th>
                             <td style="text-align: left; vertical-align: middle;">
-                                <img src="img/sublime.png" height="125">
+                                <img src="img/sublime.png" height="125">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <img src="img/phpstorm.png" height="125">
                             </td>
                         </tr>
                         <tr class="fragment">
-                            <th style="text-align: left; vertical-align: middle;">results</th>
+                            <th style="text-align: left; vertical-align: middle;">result</th>
                             <td style="text-align: left; vertical-align: middle;">the same</td>
                         </tr>
                     </table>
@@ -247,7 +295,7 @@
 
                 <section>
                     <h1>environments: goal</h1>
-                    <h3>easily toggle between a dev &amp; production environment</h3>
+                    <h3>easily work in a dev and/or production replica environment</h3>
                 </section>
 
                 <section>
