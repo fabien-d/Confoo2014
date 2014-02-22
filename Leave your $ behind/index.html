@@ -32,34 +32,144 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <section data-background="img/automation.jpg">
-                    <h1>Leave your &lsquo;$&rsquo; behind</h1>
+                <section data-background="img/cover.jpg">
+                    <h1>leave your &lsquo;$&rsquo; behind</h1>
                     <p class="footnote">
                         <small><a href="http://fabien-d.github.io">Fabien Doiron</a> / <a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></small>
                     </p>
                 </section>
 
                 <section>
-                    <h3 class="fragment">I am not here to tell you to</h3>
+                    <h3 class="fragment" style="margin: 0;">I am not here to tell you to</h3>
                     <h1>stop using jQuery</h1>
                 </section>
 
-                <section data-background="img/pingpong.jpg">
+                <section data-background="../common/img/pingpong.jpg">
                     <h1>I work on Crated</h1>
                     <h3>software developer, front-end</h3>
-                    <img src="img/avatar.jpg" class="avatar">
+                    <img src="../common/img/avatar.jpg" class="avatar">
                     <p><a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></p>
-                    <p class="footnote">
-                        <small><a href="http://canvaspop.com">CanvasPop</a> / <a href="http://developers.canvaspop.com">CanvasPop API</a> / <a href="http://dna11.com">DNA11</a> / <a href="http://crated.com">Crated</a></small>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>fabien doiron</li>
+                            <li>front-end software developer</li>
+                            <li>work on crated</li>
+                            <li>community and marketplace for digital artist and photographers</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-background="../common/img/pingpong.jpg">
+                    <p>
+                        <a href="http://www.canvaspop.com" style="margin: 0 15px;"><img src="../common/img/cp-logo.png"></a>
+                        <a href="http://www.dna11.com" style="margin: 0 15px;"><img src="../common/img/dna-logo.png"></a>
+                        <a href="http://www.crated.com" style="margin: 0 15px;"><img src="../common/img/crated-logo.png"></a>
                     </p>
+                    <p>
+                        <a href="http://developers.canvaspop.com" style="margin: 0 15px;"><img src="../common/img/cpapi-logo.png"></a>
+                        <a href="http://remade.canvaspop.com" style="margin: 0 15px;"><img src="../common/img/remade-logo.png"></a>
+                    </p>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>all these projects</li>
+                            <li>same guys</li>
+                            <li>all under the same roof</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>server vs client</h2>
+                    <br>
+                    <table>
+                        <tr class="fragment">
+                            <th style="vertical-align: top; padding: 0; text-align: left;">server</th>
+                            <td style="vertical-align: top; text-align: left;">
+                                <ul>
+                                    <li>limited by what is on the server</li>
+                                    <li>works here, works everywhere</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr class="fragment">
+                            <th style="vertical-align: top; padding: 0; text-align: left;">client</th>
+                            <td style="vertical-align: top; text-align: left;">
+                                <ul>
+                                    <li>limited by what the client (e.g. browser) supports</li>
+                                    <li>works here, hope it works everywhere</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
                 </section>
 
                 <section data-background="img/sad.jpeg">
                     <h2 class="footnote" style="background: rgba(0,0,0,.6); padding: 5px 0 10px">&ldquo;One cries because one is sad.<br>For example, I cry because browsers are inconsistent and that makes me sad.&rdquo;</h2>
                 </section>
 
+                <section data-background="img/2sides.jpg">
+                    <h2>2 types of problems</h2>
+                </section>
+
                 <section>
-                    <h1>server side languages</h1>
+                    <h2>missing features</h2>
+                    <h3>HTML5 form validation</h3>
+                    <br>
+                    <table class="fragment">
+                        <tr>
+                            <th>Chrome</th>
+                            <th>Firefox</th>
+                            <th>Internet Explorer</th>
+                            <th>Opera</th>
+                            <th>Safari</th>
+                        </tr>
+                        <tr>
+                            <td><span style="color: #7F975F;">Yes</span></td>
+                            <td><span style="color: #7F975F;">Yes</span></td>
+                            <td><span style="color: #CC9393;">10+</span></td>
+                            <td><span style="color: #7F975F;">Yes</span></td>
+                            <td><span style="color: #7F975F;">Yes</span></td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h2>need a fallback for  IE9-</h2>
+                </section>
+
+                <section>
+                    <code>focusout</code>
+                    <br><br>
+                    <table class="fragment">
+                        <tr>
+                            <th>Chrome</th>
+                            <th>Firefox</th>
+                            <th>Internet Explorer</th>
+                            <th>Opera</th>
+                            <th>Safari</th>
+                        </tr>
+                        <tr>
+                            <td><span style="color: #7F975F;">Yes</span></td>
+                            <td><span style="color: #CC9393;">No</span></td>
+                            <td><span style="color: #7F975F;">Yes</span></td>
+                            <td><span style="color: #7F975F;">Yes</span></td>
+                            <td><span style="color: #7F975F;">Yes</span></td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h2>bug has been opened for over<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=687787">2.5 years</a></h2>
+                </section>
+
+                <!--<section>
+                    <h2>server side languages</h2>
                     <ul>
                         <li class="fragment">compiled on the server</li>
                         <li class="fragment">limited only by what is on the server</li>
@@ -68,19 +178,30 @@
                 </section>
 
                 <section>
-                    <h1>client side languages</h1>
+                    <h2>client side languages</h2>
                     <ul>
                         <li class="fragment">compiled on the client</li>
-                        <li class="fragment">limited by what the client (e.g. browsers) supports</li>
+                        <li class="fragment">limited by what the client supports</li>
                         <li class="fragment">works here, hope it works everywhere</li>
                     </ul>
                 </section>
 
-                <section data-background="img/caniuse.png"></section>
+                <section data-background="img/caniuse.png"></section>-->
+
+                <section data-background="img/rise.jpg">
+                    <h1>rise of libraries</h1>
+                </section>
 
                 <section>
-                    <h1>rise of libraries</h1>
-                    <p>"It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers" - jQuery</p>
+                    <p>&ldquo;It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers&rdquo; - jQuery</p>
+                </section>
+
+                <section>
+                    <p style="color: rgba(255,255,255,.3);">&ldquo;It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that <span style="color: #FFF">works across a multitude of browsers</span>&rdquo; - jQuery</p>
+                </section>
+
+                <section data-background="img/memory.jpg">
+                    <h2>back to the start</h2>
                 </section>
 
                 <section>
@@ -97,65 +218,87 @@
                     <img class="fragment" src="img/browsers2014.png">
                 </section>
 
-                <section>
+                <!--<section>
                     <img src="img/qsa.png">
+                </section>-->
+
+                <section>
+                    <h1>0%</h1>
+                    <h3>number of browsers in 2006 that supported</h3>
+                    <code>querySelector()</code>
+                    <p class="footnote"><small>&nbsp;</small></p>
+                </section>
+
+                <section>
+                    <h1>100%*</h1>
+                    <h3>number of browsers in 2014 that support</h3>
+                    <code>querySelector()</code>
+
+                    <p class="footnote"><small>*current version and up to 3 versions back</small></p>
                 </section>
 
                 <section data-background="img/notneed.png"></section>
 
                 <section data-background="img/99problems.jpeg">
+                    <h2 class="footnote" style="background: rgba(0,0,0,.6); padding: 5px 0 10px">I got 99 problems but IE7 ain&rsquo;t one</h2>
                     <div class="footnote">
-                        <h1>I got 99 problems<br>
-                        but IE7 ain't one</h1>
+                        <h2></h2>
                     </div>
                 </section>
 
                 <section>
-                    <h1>jQuery: pros</h1>
+                    <h2>jQuery: pros</h2>
                     <ul>
                         <li class="fragment">tested and proven</li>
                         <li class="fragment">large community</li>
+                        <li class="fragment">easy to use API</li>
+                        <li class="fragment">tons of browser specific edge cases</li>
                         <li class="fragment">filesize is reasonable</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h1>jQuery: cons</h1>
+                    <h2>jQuery: cons</h2>
                     <ul>
                         <li class="fragment">bloat, can be more than you need</li>
-                        <li class="fragment">native support on the rise</li>
+                        <li class="fragment">native support is on the rise</li>
                         <li class="fragment">can lead to a hard dependency</li>
+                        <li class="fragment">can lead to poor engineering decisions</li>
                     </ul>
                 </section>
 
-                <section>
+                <section data-background="img/abstraction.jpg">
                     <h1>abstraction</h1>
-                    <blockquote><p>&ldquo;hide all the unwanted and not needed information and provide only that which is needed&rdquo;</p></blockquote>
+                    <h3>facade pattern</h3>
                 </section>
 
                 <section>
-                    <h1>in other words</h1>
-                    <p>Write your own API do not rely on someone elses</p>
+                    <h2>&ldquo;hide all the unwanted information and provide only what is needed&rdquo;</h2>
                 </section>
 
                 <section>
-                    <h1>before we continue</h1>
-                    <p>Does not mean you have to write a new library or framework&hellip;</p>
-                    <p>That's been done</p>
+                    <h2>in other words</h2>
+                    <h3>write your own API do not rely on someone elses</h3>
                 </section>
 
                 <section>
-                    <h1>write code that is interchangeable</h1>
+                    <h2>before we continue</h2>
+                    <h3>I am not saying you have to write a new library</h3>
+                </section>
+
+                <section>
+                    <h2>write code that is interchangeable</h2>
                 </section>
 
                 <section>
                     <h2>basic example</h2>
-                    <pre><code class="javascript"> $( '.conference' ).addClass( 'confoo2014' );</code></pre>
+                    <pre><code class="javascript"> $( '.conference' ).addClass( 'confoo2014' );
+ // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></code></pre>
                 </section>
 
                 <section>
-                    <h2>API w/ jQuery</h2>
-                    <pre><code class="javascript"> var myui = {};
+                    <h2>custom API w/ jQuery</h2>
+                    <pre class="fragment"><code class="javascript"> var myui = {};
 
  /**
   * Return first matching element
@@ -170,20 +313,30 @@
  myui.addClass = function addClass ( el, klass ) {
      $( el ).addClass( klass );
  };</code></pre>
+                </section>
+
+                <section>
+                    <h2>using jQuery through API</h2>
 
                     <div class="fragment">
-                        <h3>code base</h3>
                         <pre><code class="javascript"> var el = myui.qs( '.conference' );
  myui.addClass( el, 'confoo2014' );
+ // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre><br>
 
- console.log( el );
- // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre>
+                        <h3>for reference</h3>
+                        <pre><code class="javascript"> myui.qs = function querySelector ( selector ) {
+     return $( selector )[ 0 ];
+ };
+
+ myui.addClass = function addClass ( el, klass ) {
+     $( el ).addClass( klass );
+ };</code></pre>
                     </div>
                 </section>
 
                 <section>
-                    <h2>API w/ Native</h2>
-                    <pre><code class="javascript"> var myui = {};
+                    <h2>custom API w/ native JavaScript</h2>
+                    <pre class="fragment"><code class="javascript"> var myui = {};
 
  /**
   * Return first matching element
@@ -198,18 +351,66 @@
  myui.addClass = function addClass ( el, klass ) {
      el.classList.add( klass );
  };</code></pre>
+                </section>
+
+                <section>
+                    <h2>using native JavaScript through API</h2>
 
                     <div class="fragment">
-                        <h3>code base</h3>
                         <pre><code class="javascript"> var el = myui.qs( '.conference' );
  myui.addClass( el, 'confoo2014' );
+ // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre><br>
 
- console.log( el );
- // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre>
+                        <h3>for reference</h3>
+                        <pre><code class="javascript"> myui.qs = function querySelector ( selector ) {
+     return document.querySelector( selector );
+ };
+
+ myui.addClass = function addClass ( el, klass ) {
+     el.classList.add( klass );
+ };</code></pre>
                     </div>
                 </section>
 
                 <section>
+                    <h2>source code does not have to change</h2>
+
+                    <div class="fragment">
+                        <pre><code class="javascript"> var el = myui.qs( '.conference' );
+ myui.addClass( el, 'confoo2014' );
+ // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre><br>
+
+                        <table>
+                            <tr>
+                                <th>jQuery</th>
+                                <th>JavaScript</th>
+                            </tr>
+                            <tr>
+                                <td><pre><code class="javascript"> myui.qs
+     return $( selector )[ 0 ];
+
+ myui.addClass
+     $( el ).addClass( klass );
+ </code></pre>
+                                </td>
+                                <td><pre><code class="javascript"> myui.qs
+     return document.querySelector( selector );
+
+ myui.addClass
+     el.classList.add( klass );
+ </code></pre>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>browser consistency is on the rise</h2>
+                    <h3>prepare yourself for it</h3>
+                </section>
+
+                <!--<section>
                     <h2>AJAX example</h2>
                     <pre><code class="javascript"> function xhrSuccess ( resp ) {
      console.log( resp );
@@ -225,7 +426,7 @@
      success: xhrSuccess,
      error: xhrError
  } );</code></pre>
-                </section>
+                </section>-->
 
                 <!--<section>
                     <h2>AJAX example</h2>
@@ -247,7 +448,7 @@
  req.always( function () {} );</code></pre>
                 </section>-->
 
-                <section>
+                <!--<section>
                     <h2>API w/ jQuery</h2>
                     <pre><code class="javascript"> /**
   * Return jQuery XMLHttpRequest object
@@ -291,7 +492,7 @@
                         <h3>code base</h3>
                         <pre><code class="javascript"> myui.xhr( 'end/point', null, function () {}, function () {} );</code></pre>
                     </div>
-                </section>
+                </section>-->
 
                 <!--<section>
                     <h2>API w/ jQuery + promises</h2>
@@ -315,8 +516,26 @@
                 </section>-->
 
                 <section>
-                    <h1>Thanks</h1>
-                    <h3>Questions?</h3>
+                    <h1>resources</h1>
+                    <ul>
+                        <li><a href="http://youmightnotneedjquery.com/">you might NOT need jQuery</a></li>
+                        <li><a href="https://gist.github.com/rwaldron/8720084#file-reasons-md">you might need jQuery</a></li>
+                        <li><a href="http://addyosmani.com/resources/essentialjsdesignpatterns/book/#facadepatternjavascript">facade pattern: essential js design patterns</a></li>
+                        <li><a href="http://caniuse.com/">caniuse.com</a></li>
+                    </ul>
+                </section>
+
+                <section data-background="../common/img/awesome.jpg">
+                    <h1>50% off</h1>
+                    <h3>because you were all awesome</h3>
+                    <br>
+                    <code>confoo2014</code><br><br>
+                    <p class="footnote"><small>coupon code valid until 03/15/2014<br>on <a href="http://canvaspop.com">CanvasPop</a> or <a href="http://dna11.com">DNA11</a></small></p>
+                </section>
+
+                <section>
+                    <h3>thank you</h3>
+                    <h1>questions</h1>
                     <p class="footnote">
                         <small><a href="http://fabien-d.github.io">Fabien Doiron</a> / <a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></small>
                     </p>
