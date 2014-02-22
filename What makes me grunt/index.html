@@ -113,6 +113,7 @@
                 <section>
                     <h3>typical tools</h3>
                     <h2>HTML / CSS / JS / FTP / browser</h2>
+
                     <aside class="notes">
                         <ul>
                             <li>know HTML, CSS and some JS</li>
@@ -124,6 +125,7 @@
                 <section>
                     <h3>then something happened</h3>
                     <h2>front-end development became complex</h2>
+
                     <aside class="notes">
                         <ul>
                             <li>became complex</li>
@@ -136,6 +138,7 @@
                 <section>
                     <h3>current typical tools</h3>
                     <h2>linting / preprocessors / concatenation / minification / versioning / testing / coverage / dependency management / continuous deployment / version control / frameworks / libraries&hellip;</h2>
+
                     <aside class="notes">
                         <ul>
                             <li>typical workflow</li>
@@ -145,12 +148,12 @@
                 </section>
 
                 <section>
-                    <h2>stack overview</h2>
+                    <h2>tools in our stack</h2>
                     <br>
                     <br>
                     <table>
                         <tr>
-                            <th style="text-align: left;">devops:</th>
+                            <th style="text-align: left;">environment:</th>
                             <td style="text-align: left;">
                                 <a href="http://www.getchef.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/chef-logo.png" height="100"></a>
                                 <a href="http://www.vagrantup.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/vagrant-logo.png" height="100"></a>
@@ -160,7 +163,7 @@
                             <th style="text-align: left;">back-end:</th>
                             <td style="text-align: left;">
                                 <a href="http://www.phing.info/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/phing-logo.png"></a>
-                                <a href="http://framework.zend.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/zf2-logo.png" height="75"></a>
+                                <!--<a href="http://framework.zend.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/zf2-logo.png" height="75"></a>-->
                                 <a href="https://getcomposer.org/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/composer-logo.png" height="100"></a>
                             </td>
                         </tr>
@@ -173,15 +176,34 @@
                             </td>
                         </tr>
                     </table>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>chef, vagrant ensure same local workspace</li>
+                            <li>phing: overall build tool</li>
+                            <li>composer</li>
+                            <li>grunt: run alone or through phing</li>
+                            <li>bower and npm</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section data-background="img/crated.jpg">
                     <h1>4 reasons</h1>
                     <h3>we use build tools &amp; automation</h3>
-                    <p>
+                    <!--<p>
                         <a href="http://www.phing.info/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/phing-logo.png"></a>
                         <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png" height="125"></a>
-                    </p>
+                    </p>-->
+
+                    <aside class="notes">
+                        <ul>
+                            <li>started crated from scratch</li>
+                            <li>no hard deadlines</li>
+                            <li>generic build tools</li>
+                            <li>port over to all projects</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -210,16 +232,38 @@
                     <h3>Grunt, Gulp, Phing, Make, Rake, Jake, Brunch, Ant&hellip;</h3>
                 </section>
 
-                <section data-background="img/time.jpg"></section>
+                <section data-background="img/time.jpg">
+                    <aside class="notes">
+                        <ul>
+                            <li>good on time?</li>
+                        </ul>
+                    </aside>
+                </section>
 
                 <section>
                     <h3>1.</h3>
                     <h1>project setup</h1>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>first of 4</li>
+                            <li>a lot of projects under 1 roof</li>
+                            <li>being able to setup a project is important</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <h2>project setup: goal</h2>
                     <h3>coding ready in minutes</h3>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>coding ready in minutes</li>
+                            <li>don't put a time on it</li>
+                            <li>can vary from scract vs update</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
@@ -227,8 +271,9 @@
                     <br>
                     <table>
                         <tr>
-                            <th style="text-align: left;">provision:</th>
+                            <th style="text-align: left;">environment:</th>
                             <td style="text-align: left;">
+                                <a href="http://www.getchef.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/chef-logo.png" height="100"></a>
                                 <a href="http://www.vagrantup.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/vagrant-logo.png" height="100"></a>
                             </td>
                         </tr>
@@ -240,6 +285,14 @@
                             </td>
                         </tr>
                     </table>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>vagrant and chef to build our local workspace</li>
+                            <li>ensures all developers have the same machine</li>
+                            <li>phing and grunt to build the actual project</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section data-background="img/steps.jpg">
@@ -256,6 +309,14 @@
                         <code><span style="color:#AFAD24">~ &#x25B8;</span> git pull</code><br>
                         <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# get latest code from repository</code>
                     </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>scratch: for example a new developer</li>
+                            <li>scratch: clone the repo</li>
+                            <li>update: update local repo</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
@@ -263,6 +324,13 @@
                     <code><span style="color:#AFAD24">~ &#x25B8;</span> vagrant up</code><br>
                     <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# puts together a complete environment<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# provision environment with chef</code>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>run a vagrant up</li>
+                            <li>optional: may already be running</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
@@ -277,46 +345,101 @@
                         <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# lint, preprocess, concat, min, version<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# my personal favourite: ascii</code>
                     </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>once local environment is setup</li>
+                            <li>we build our project</li>
+                            <li>phing is our main build tool</li>
+                            <li>runs everything - see list</li>
+                            <li>including grunt</li>
+                            <li>grunt can be separate, ran by itself</li>
+                        </ul>
+                    </aside>
                 </section>
 
-                <section data-background="img/ascii.png"></section>
+                <section data-background="img/ascii.png">
+                    <aside class="notes">
+                        <ul>
+                            <li>make the terminal fun</li>
+                            <li>plus it's obvious when a build completed successfully</li>
+                        </ul>
+                    </aside>
+                </section>
 
                 <section data-background="img/coffee.jpg"></section>
 
                 <section>
                     <h3>2.</h3>
                     <h1>project output</h1>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>second point</li>
+                            <li>project output</li>
+                            <li>extension of project setup</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <h2>project output: goal</h2>
                     <h3>reproducible results regardless of developer setup/workflow</h3>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>goal with the output is reproducible results</li>
+                            <li>freedom for devs to use the tools they want</li>
+                            <li>without worry about the output</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section data-background="#BC0621">
                     <img src="img/works-on-my-machine.png">
+
+                    <aside class="notes">
+                        <ul>
+                            <li>main reason this is important</li>
+                            <li>avoid at all cost "works on my machine" excuse</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <h2>project output: tools</h2>
                     <br>
                     <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png"></a>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>front-end build tools</li>
+                            <li>where the talk gets more focused on front-end</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
                     <h2>reduce the risk of
-                    <br>&ldquo;works on my machine&rdquo;<br>
+                    <br>&ldquo;<span style="color:#AFAD24">works on my machine</span>&rdquo;<br>
                     by abstracting the output settings from the user to the build tool</h2>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>mentioned avoid "works on my machine"</li>
+                            <li>avoid having settings tied to a dev</li>
+                            <li>abstract from user to the project</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>example: compiling Sass into CSS</h2>
-                    <h3>user settings</h3>
+                    <h2>compiling CSS: user settings</h2>
                     <br>
                     <div class="fragment">
                         <p style="text-align: left;">
-                            <code><span style="color:#AFAD24">~ &#x25B8;</span> sass in.scss:out.css --style expanded</code><br>
-                            <code><span style="color:#AFAD24">~ &#x25B8;</span> sass in.scss:out.css --style nested</code>
+                            <code><span style="color:#AFAD24">~ &#x25B8;</span> sass in.scss:out.css</code><br>
+                            <code><span style="color:#AFAD24">~ &#x25B8;</span> lessc in.scss &gt; out.css</code>
                         </p>
                     </div>
 
@@ -332,40 +455,61 @@
                             results: can vary
                         </p>
                     </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>dive into css example</li>
+                            <li>compile css from the terminal</li>
+                            <li>compile from a GUI/app</li>
+                            <li>results can vary</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>grunt compass task</h2>
+                    <h2>example task (Sass)</h2>
                     <pre><code class="javascript"> module.exports = function ( grunt ) {
      var src = '<%= grunt.option( "src" ) %>';
      var tmp = '<%= grunt.option( "tmp" ) %>';
 
-     grunt.config( 'compass', {
-         options: {
-             sassDir: src + '/sass',
-             cssDir: tmp + '/sass'
-         },
-         dist: {}
+     grunt.config( 'sass', {
+         dist: {
+             files: [ {
+                 expand: true,
+                 cwd: src + '/sass',
+                 src: [ '*.scss' ],
+                 dest: tmp + '/sass',
+                 ext: '.css'
+             } ]
+         }
      } );
 
-     grunt.loadNpmTasks( 'grunt-contrib-compass' );
+     grunt.loadNpmTasks( 'grunt-contrib-sass' );
  };</code></pre>
+                    <aside class="notes">
+                        <ul>
+                            <li>we use sass</li>
+                            <li>our grunt sass task</li>
+                            <li>could be any other preprocessor task</li>
+                            <li>again, grunt example could be any other build tool</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>example: compiling Sass into CSS</h2>
-                    <h3>abstracted settings</h3>
+                    <h2>compiling CSS: tool settings</h2>
                     <br>
                     <div class="fragment">
                         <p style="text-align: left;">
-                            <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt compass</code>
+                            <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt sass</code><br>
+                            <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt less</code>
                         </p>
                     </div>
 
                     <div class="fragment">
                         <p style="text-align: left;">
-                            <img src="img/sublime.png" height="108">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            <img src="img/phpstorm.png" height="108">
+                            <img src="img/sublime.png" height="65">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="img/phpstorm.png" height="65">
                         </p>
                     </div>
 
@@ -374,24 +518,58 @@
                             results: are the same
                         </p>
                     </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>look into another example</li>
+                            <li>compile css from the terminal using a build tool</li>
+                            <li>run the build tool a editor/IDE</li>
+                            <li>results are the same</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section data-background="img/coffee.jpg"></section>
 
                 <section>
                     <h3>3.</h3>
-                    <h1>environments</h1>
+                    <h1>coding environment</h1>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>third point</li>
+                            <li>coding environments</li>
+                            <li>we've seen local development environment</li>
+                            <li>every dev works on the same VM</li>
+                            <li>we've seen build tools for same output</li>
+                            <li>take that one step further</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>environments: goal</h2>
+                    <h2>coding environment: goal</h2>
                     <h3>easily work in a dev and/or production replica environment</h3>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>goal is dev/prod replica coding environments</li>
+                            <li>prod replica means exact code that gets deployed</li>
+                            <li>any given time we can work on dev or prod environments</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section>
-                    <h2>environments: tools</h2>
+                    <h2>coding environment: tools</h2>
                     <br>
                     <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png"></a>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>again focused on the front-end build tool</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
@@ -403,34 +581,89 @@
                         </tr>
                         <tr>
                             <td style="text-align: left;" class="fragment"><code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# linting<br>
-&nbsp;&nbsp;&nbsp;&nbsp;# compass<br>
-&nbsp;&nbsp;&nbsp;&nbsp;# versioning</code></td>
+&nbsp;&nbsp;&nbsp;&nbsp;# sass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# versioning*</code></td>
                             <td style="text-align: left;" class="fragment"><code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# linting<br>
-&nbsp;&nbsp;&nbsp;&nbsp;# compass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# sass<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# uglify<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# cssmin<br>
-&nbsp;&nbsp;&nbsp;&nbsp;# versioning</code></td>
+&nbsp;&nbsp;&nbsp;&nbsp;# versioning*</code></td>
                         </tr>
                     </table>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>2 parts that make all of this possible</li>
+                            <li>first are build targets</li>
+                            <li>separate :dev and :prod targets</li>
+                            <li>:dev runs lint, sass and versioning</li>
+                            <li>:prod runs lint, sass, uglify, cssmin and versioning</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
                     <h2>grunt-static-versioning</h2>
-                    <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt versioning:dev</code><br>
-                    <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# copy source files to output dir<br>
+                    <div class="fragment">
+                        <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt versioning:dev</code><br>
+                        <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# copy source files to output dir<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# generate config file</code>
-                    <br><br>
+                    </div>
                     <div class="fragment">
                         <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt versioning:prod</code><br>
                         <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# generate md5 hash from min/concat<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;source files<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# append md5 hash to filename<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# generate config file</code>
                     </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>second part is the versioning task</li>
+                            <li>open sourced task we build</li>
+                            <li>2 flags, :dev and :prod</li>
+                            <li>:dev copies source files to output directory</li>
+                            <li>generates config file, with copied assets</li>
+                            <li>:prod generates md5 hash, appends to file name, copies file to output directory</li>
+                            <li>generates config file, with copied assets</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section>
+                    <h2>grunt versioning task</h2>
+                    <pre><code class="javascript"> versioning: {
+     options: {
+         cwd: 'public',
+         outputConfigDir: 'public/config'
+     },
+     dist: {
+         files: [{
+             assets: '&lt;%= uglify.main.files %&gt;',
+             key: 'global',
+             dest: 'js',
+             type: 'js',
+             ext: '.min.js'
+         }, { &hellip; } ]
+     }
+ }</code></pre>
+                    <aside class="notes">
+                        <ul>
+                            <li>sample grunt versioning task</li>
+                            <li>leverages other task, uglify and cssmin</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section data-background="img/4steps.jpg">
-                    <h2>environments setup</h2>
+                    <h2>coding environments setup</h2>
                     <h3>in 4 easy steps</h3>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>seen the 2 major parts of how it works</li>
+                            <li>now we're going to break it down to 4 steps</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
@@ -443,6 +676,12 @@
                         <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code><br>
                         <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# concat, minified, versioned files</code>
                     </div>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>first are the targets</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
@@ -483,6 +722,17 @@
 </code></pre></td>
                         </tr>
                     </table>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>versioning task generates the output</li>
+                            <li>seen that it copies file to output</li>
+                            <li>:dev public directory with static directory inside</li>
+                            <li>copies all files, loses directory structure</li>
+                            <li>:prod same overall directory structure</li>
+                            <li>copies versioned/concat files</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
@@ -511,6 +761,17 @@
                             </td>
                         </tr>
                     </table>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>:dev generated config file</li>
+                            <li>versioning creates the config file in our config directory</li>
+                            <li>always same location/same name</li>
+                            <li>includes all source files</li>
+                            <li>php shop, php output. task can do JSON as well</li>
+                            <li>files are separated into key groupings</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
@@ -538,10 +799,20 @@
                             </td>
                         </tr>
                     </table>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>:prod generated config file</li>
+                            <li>versioning creates the config file in our config directory</li>
+                            <li>always same location/same name</li>
+                            <li>includes only concat/min/versioned files</li>
+                            <li>same key, just less files</li>
+                        </ul>
+                    </aside>
                 </section>
 
                 <section style="text-align: left;">
-                    <h2>iv. using generated configuration file</h2>
+                    <h2>iv. use generated configuration file</h2>
                     <br>
                     <pre><code class="php"> // inside our layouts
  &lt;?php $this->versionedAsset()->render( 'global' ); ?&gt;</code></pre>
@@ -565,6 +836,43 @@
  &lt;script src="/static/js/common.4923a32c.min.js"&gt;&lt;/script&gt;</code></pre></td>
                         </tr>
                     </table>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>inside our templates/layout files</li>
+                            <li>viewHelper, pass key load all CSS and JS associated with it</li>
+                            <li>:dev output</li>
+                            <li>includes all source files</li>
+                            <li>:prod output</li>
+                            <li>includes concat/min/versioned files</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-background="">
+                    <h2>why did we go down this road?</h2>
+                </section>
+
+                <section data-background="">
+                    <h2>cloudfront invalidation ~15 minutes</h2>
+                    <h3>no longer applicable*</h3>
+                    <p class="footnote"><small>*appending a hash creates a &ldquo;new&rdquo; file</small></p>
+                </section>
+
+                <section data-background="">
+                    <h2>cleaner includes in our layouts</h2>
+                    <div class="fragment">
+                        <h3>messy</h3>
+                        <pre><code class="php"> if( APPLICATION_ENV == "production") {
+     // include concat/min files
+ } else {
+     // include all dev files
+ }</code></pre>
+                    </div>
+                    <div class="fragment">
+                        <h3>clean</h3>
+                        <pre><code class="php"> &lt;?php $this->versionedAsset()->render( 'global' ); ?&gt;</code></pre>
+                    </div>
                 </section>
 
                 <section data-background="img/demo.jpg">
@@ -585,10 +893,6 @@
                     <h2>debugging [ compiled, ] concatenated, minified code is hard</h2>
                 </section>
 
-                <section data-background="img/debug.jpg">
-                    <h2 style="background: rgba(0,0,0,.8); padding: 5px 0 10px">trying to fix a bug in production is on the same level as using an API with no documentation</h2>
-                </section>
-
                 <section>
                     <h2>our approach</h2>
                     <h3>when a bug is found/reported</h3>
@@ -600,8 +904,8 @@
                         <li class="fragment">reproduce the error</li>
                         <li class="fragment">rule out minification error</li>
                         <li class="fragment">use devtools on source files</li>
-                        <li class="fragment">update/add unit, regression tests</li>
-                        <li class="fragment">generally all you need</li>
+                        <li class="fragment">update/add unit, integration, regression tests</li>
+                        <li class="fragment">generally all we need</li>
                     </ul>
                 </section>
 
@@ -612,8 +916,12 @@
                         <li class="fragment">use devtools with source maps</li>
                         <li class="fragment">still have access to source files</li>
                         <li class="fragment">easier to debug than on the live site</li>
-                        <li class="fragment">update/add unit, regression tests</li>
+                        <li class="fragment">update/add unit, integration, regression tests</li>
                     </ul>
+                </section>
+
+                <section data-background="img/debug.jpg">
+                    <h2 style="background: rgba(0,0,0,.8); padding: 5px 0 10px">&ldquo;trying to fix a bug in minified code is like using a new API with no documentation&rdquo;</h2>
                 </section>
 
                 <section>
