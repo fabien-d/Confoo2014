@@ -82,6 +82,10 @@ body {
   margin-bottom: 0;
 }
 
+.reveal pre {
+  width: 100%;
+}
+
 .reveal pre code {
   box-shadow: none;
   background: rgba(255,255,255,.1);

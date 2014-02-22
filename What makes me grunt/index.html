@@ -188,7 +188,7 @@
                 </section>
 
                 <section style="text-align: left;">
-                    <h2>1.</h2>
+                    <h2>i.</h2>
                     <code><span style="color:#AFAD24">~ &#x25B8;</span> git clone &hellip;</code><br>
                     <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# get code from repository</code>
                     <br><br>
@@ -199,14 +199,14 @@
                 </section>
 
                 <section style="text-align: left;">
-                    <h2>2.</h2>
+                    <h2>ii.</h2>
                     <code><span style="color:#AFAD24">~ &#x25B8;</span> vagrant up</code><br>
                     <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# puts together a complete environment<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# provision environment with chef</code>
                 </section>
 
                 <section style="text-align: left;">
-                    <h2>3.</h2>
+                    <h2>iii.</h2>
                     <code><span style="color:#AFAD24">~ &#x25B8;</span> phing proj:build</code><br>
                     <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# get deps with composer, npm &amp; bower<br>
 &nbsp;&nbsp;&nbsp;&nbsp;# database migration with phinx<br>
@@ -334,13 +334,47 @@
                     <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png"></a>
                 </section>
 
+                <section style="text-align: left;">
+                    <h2>build targets</h2>
+                    <table>
+                        <tr>
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code></th>
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code><br></th>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;" class="fragment"><code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# linting<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# compass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# versioning</code></td>
+                            <td style="text-align: left;" class="fragment"><code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# linting<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# compass<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# uglify<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# cssmin<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# versioning</code></td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section style="text-align: left;">
+                    <h2>grunt-static-versioning</h2>
+                    <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt versioning:dev</code><br>
+                    <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# copy source files to output dir<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# generate config file</code>
+                    <br><br>
+                    <div class="fragment">
+                        <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt versioning:prod</code><br>
+                        <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# generate md5 hash from min/concat<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;source files<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# append md5 hash to filename<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# generate config file</code>
+                    </div>
+                </section>
+
                 <section data-background="img/4steps.jpg">
                     <h2>environments setup</h2>
                     <h3>in 4 easy steps</h3>
                 </section>
 
                 <section style="text-align: left;">
-                    <h2>1. separate targets</h2>
+                    <h2>i. separate targets</h2>
                     <br>
                     <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code><br>
                     <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# all source files, commented, unminified</code>
@@ -352,40 +386,38 @@
                 </section>
 
                 <section style="text-align: left;">
-                    <h2>2. output</h2>
+                    <h2>ii. generated output</h2>
                     <table>
                         <tr>
                             <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code></th>
                             <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code><br></th>
                         </tr>
                         <tr>
-                            <td class="fragment"><pre><code class="bash"> &#x25B8; public
-   &#x25B8; static
-     &#x25B8; css
+                            <td class="fragment"><pre><code class="markdown"> &#x25BE; public
+   &#x25BE; static
+     &#x25BE; css
        main.css
 
-     &#x25B8; js
-       file1.js
-       file2.js
+     &#x25BE; js
+       plugin1.js
+       plugin2.js
+       common1.js
+       common2.js
        home1.js
        home2.js
+       &hellip;</code></pre></td>
+
+                            <td class="fragment"><pre><code class="markdown"> &#x25BE; public
+   &#x25BE; static
+     &#x25BE; css
+       main.7f41197e.min.css
+
+     &#x25BE; js
+       plugins.7409b19a.min.js
+       common.4923a32c.min.js
+       home.47b0990d.min.js
        &hellip;
 
-     &#x25B8; fonts
-     &#x25B8; img</code></pre></td>
-
-                            <td class="fragment"><pre><code> public
- .... static
-      .... css
-               main.7f41197e.min.css
-
-      .... js
-               plugins.7409b19a.min.js
-               common.4923a32c.min.js
-               home.47b0990d.min.js
-
-      .... fonts
-      .... img
 
 
 </code></pre></td>
@@ -393,87 +425,15 @@
                     </table>
                 </section>
 
-                <section>
-                    <h1>4 steps</h1>
-                    <ol>
-                        <li class="fragment">build task</li>
-                        <li class="fragment">populates the output directory</li>
-                        <li class="fragment">generates a static assets configuration file</li>
-                        <li class="fragment">configuration is used to include assets in the layout</li>
-                    </ol>
-                </section>
-
-                <section>
-                    <h3>1 of 4</h3>
-                    <h2>build task</h2>
-                    <pre class="fragment"><code> $ > grunt build:dev</code></pre>
-                    <div class="fragment"><pre><code> # jshint:     code quality
- # clean:      remove build directory
- # compass:    Sass -> CSS (unminified)
- # versioning: generate CSS/JS config file
- # copy:       copies necessary assets
- # clean:      remove temporary build directories</code></pre></div>
-
-                    <pre class="fragment"><code> $ > grunt build:prod</code></pre>
-                    <div class="fragment"><pre><code> # jshint:     code quality
- # clean:      remove build directory
- # compass:    Sass -> CSS (unminified)
- # uglify:     minify and concatenate JS
- # cssmin:     minify CSS
- # versioning: hash min/concat CSS/JS and generate config file
- # copy:       copies necessary assets
- # clean:      remove temporary build directories</code></pre></div>
-                </section>
-
-                <section>
-                    <h3>2 of 4</h3>
-                    <h2>output directory</h2>
+                <section style="text-align: left;">
+                    <h2>iii. generated configuration file</h2>
                     <table>
                         <tr>
-                            <th>:dev (all files)</th>
-                            <th>:prod (min/concat files)</th>
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code></th>
                         </tr>
                         <tr>
-                            <td class="fragment"><pre><code> public
- .... static
-      .... css
-               main.css
-
-      .... js
-               file1.js
-               file2.js
-               home1.js
-               home2.js
-               &hellip;
-
-      .... fonts
-      .... img</code></pre></td>
-
-                            <td class="fragment"><pre><code> public
- .... static
-      .... css
-               main.7f41197e.min.css
-
-      .... js
-               plugins.7409b19a.min.js
-               common.4923a32c.min.js
-               home.47b0990d.min.js
-
-      .... fonts
-      .... img
-
-
-</code></pre></td>
-                        </tr>
-                    </table>
-                </section>
-
-                <section>
-                    <h3>3 of 4</h3>
-                    <h2>configuration file :dev</h2>
-                    <div><pre><code class="php"> &lt;?php
+                            <td class="fragment"><pre><code class="php"> &lt;?php
  return array( 'static.assets' => array(
-
      'global' => array(
          'css' => array( '/static/css/main.css' ),
          'js'  => array( '/static/js/file1.js', '/static/js/file2.js', &hellip; )
@@ -485,18 +445,23 @@
      ),
 
      'anotherKey' => array( &hellip; )
-
  ) );
 
-</code></pre></div>
+</code></pre>
+                            </td>
+                        </tr>
+                    </table>
                 </section>
 
-                <section>
-                    <h3>3 of 4</h3>
-                    <h2>configuration file :prod</h2>
-                    <div><pre><code class="php"> &lt;?php
+                <section style="text-align: left;">
+                    <h2>iii. generated configuration file</h2>
+                    <table>
+                        <tr>
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code></th>
+                        </tr>
+                        <tr>
+                            <td class="fragment"><pre><code class="php"> &lt;?php
  return array( 'static.assets' => array(
-
      'global' => array(
          'css' => array( '/static/css/main.7f41197e.min.css' ),
          'js'  => array( '/static/js/plugins.7409b19a.min.js',
@@ -509,126 +474,40 @@
      ),
 
      'anotherKey' => array( &hellip; )
-
- ) );
-</code></pre></div>
-                </section>
-
-               <!-- <section>
-                    <h3>3 of 4</h3>
-                    <h2>configuration file :dev</h2>
-                    <div><pre><code class="javascript"> { "staticAssets": {
-
-     "global": {
-       "css": [ '/static/css/main.css' ],
-       "js" : [ '/static/js/file1.js', '/static/js/file2.js', &hellip; ]
-     },
-
-     "home": {
-       "css": []
-       "js" : [ 'static/js/home1.js', '/static/js/home2.js' ]
-     },
-
-     "anotherKey": { &hellip; }
-
-   }
- }
-
-</code></pre></div>
-                </section>
-
-                <section>
-                    <h3>3 of 4</h3>
-                    <h2>configuration file :prod</h2>
-                    <div><pre><code class="javascript"> { "staticAssets": {
-
-     "global": {
-       "css": [ '/static/css/main.7f41197e.min.css' ],
-       "js" : [ '/static/js/plugins.7409b19a.min.js',
-                '/static/js/common.4923a32c.min.js', &hellip; ]
-     },
-
-     "home": {
-       "css": []
-       "js" : [ 'static/js/home.47b0990d.min.js' ]
-     },
-
-     "anotherKey": { &hellip; }
-
-   }
- }</code></pre></div>
-                </section>-->
-
-                <!--<section>
-                    <h3>3 of 4</h3>
-                    <h2>configuration file</h2>
-                    <table>
-                        <tr>
-                            <td class="fragment"><pre><code class="javascript"> /* grunt build:dev */
- { "staticAssets": {
-     "global": {
-       "css": [ '~/main.css' ],
-       "js" : [
-         '~/file1.js',
-         '~/file2.js', &hellip;
-       ]
-     },
-     "home": {
-       "css": []
-       "js" : [
-         '~/home1.js',
-         '~/home2.js'
-       ]
-     }, &hellip;
-   }
- }</code></pre></td>
-
-                            <td class="fragment"><pre><code> { "staticAssets": {
-     "global": {
-       "css": [ '~/main.7f41197e.min.css' ],
-       "js" : [
-         '~/plugins.7409b19a.min.js',
-         '~/common.4923a32c.min.js', &hellip;
-       ]
-     },
-     "home": {
-       "css": []
-       "js" : [ '~/home.47b0990d.min.js' ]
-     }, &hellip;
-   }
- }
-
-
-
-</code></pre></td>
+ ) );</code></pre>
+                            </td>
                         </tr>
                     </table>
-                    <pre class="fragment"><code>~ = path e.g. '/static/js', '/static/css'</code></pre>
-                </section>-->
-
-                <section>
-                    <h3>4 of 4</h3>
-                    <h2>usage</h2>
-                    <pre><code>&lt;?php $this->versionedAsset()->render( 'global' ); ?&gt;</code></pre>
-                    <br>
-
-                    <div class="fragment">
-                        <h3>output :dev</h3>
-                        <pre><code> &lt;link rel="stylesheet" href="/static/css/main.css">
- &hellip;
- &lt;script src="/static/js/file1.js"&gt;&lt;/script&gt;
- &lt;script src="/static/js/file2.js"&gt;&lt;/script&gt; &hellip;</code></pre>
-                    </div>
-                    <div class="fragment">
-                        <h3>output :prod</h3>
-                        <pre><code> &lt;link rel="stylesheet" href="/static/css/main.7f41197e.min.css">
- &hellip;
- &lt;script src="/static/js/plugins.7409b19a.min.js"&gt;&lt;/script&gt;
- &lt;script src="/static/js/common.4923a32c.min.js"&gt;&lt;/script&gt;</code></pre>
-                    </div>
                 </section>
 
-                <section>
+                <section style="text-align: left;">
+                    <h2>iv. using generated configuration file</h2>
+                    <br>
+                    <pre><code class="php"> // inside our layouts
+ &lt;?php $this->versionedAsset()->render( 'global' ); ?&gt;</code></pre>
+                    <table>
+                        <tr class="fragment">
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code></th>
+                        </tr>
+                        <tr>
+                            <td class="fragment"><pre><code> &lt;link rel="stylesheet" href="/static/css/main.css">
+ &hellip;
+ &lt;script src="/static/js/file1.js"&gt;&lt;/script&gt;
+ &lt;script src="/static/js/file2.js"&gt;&lt;/script&gt; &hellip;</code></pre></td>
+                        </tr>
+                        <tr class="fragment">
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code></th>
+                        </tr>
+                        <tr>
+                            <td class="fragment"><pre><code> &lt;link rel="stylesheet" href="/static/css/main.7f41197e.min.css">
+ &hellip;
+ &lt;script src="/static/js/plugins.7409b19a.min.js"&gt;&lt;/script&gt;
+ &lt;script src="/static/js/common.4923a32c.min.js"&gt;&lt;/script&gt;</code></pre></td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section data-background="img/demo.jpg">
                     <h1>demo</h1>
                 </section>
 
@@ -638,7 +517,7 @@
                 </section>
 
                 <section>
-                    <h1>debugging: goal</h1>
+                    <h2>debugging: goal</h2>
                     <h3>effectively debug errors</h3>
                 </section>
 
@@ -646,18 +525,17 @@
                     <h2>debugging [ compiled, ] concatenated, minified code is hard</h2>
                 </section>
 
-                <section data-background="img/bug.png">
-                    <h2 class="footnote" style="margin-top: 150px; background: rgba(255,0,0,.6); padding: 5px 0 10px">debugging in production can be scary</h2>
+                <section data-background="img/debug.jpg">
+                    <h2 style="background: rgba(0,0,0,.8); padding: 5px 0 10px">trying to fix a bug in production is on the same level as using an API with no documentation</h2>
                 </section>
 
                 <section>
-                    <h1>our approach</h1>
+                    <h2>our approach</h2>
                     <h3>when a bug is found/reported</h3>
                 </section>
 
                 <section>
-                    <h3>1.</h3>
-                    <h1>build dev environment</h1>
+                    <h2>i. build dev environment</h2>
                     <ul>
                         <li class="fragment">reproduce the error</li>
                         <li class="fragment">rule out minification error</li>
@@ -668,8 +546,7 @@
                 </section>
 
                 <section>
-                    <h3>2.</h3>
-                    <h1>build prod environment</h1>
+                    <h2>ii. build prod environment</h2>
                     <ul>
                         <li class="fragment">reproduce the error</li>
                         <li class="fragment">use devtools with source maps</li>
@@ -680,21 +557,31 @@
                 </section>
 
                 <section>
-                    <h1>recap</h1>
+                    <h1>resources</h1>
                     <ul>
-                        <li class="fragment">being a front-end developer is hard</li>
-                        <li class="fragment">build tools make you awesome</li>
-                        <li class="fragment">automate the repetitive tasks</li>
-                        <li class="fragment">frictionless project setup</li>
-                        <li class="fragment">reproduce output every time</li>
-                        <li class="fragment">access to dev and production environments locally</li>
-                        <li class="fragment">take the stress out of debugging</li>
+                        <li><a href="http://www.getchef.com/">chef</a></li>
+                        <li><a href="http://www.vagrantup.com/">vagrant</a></li>
+                        <li><a href="http://www.phing.info/">phing</a></li>
+                        <li><a href="http://framework.zend.com/">zend framework</a></li>
+                        <li><a href="https://getcomposer.org/">composer</a></li>
+                        <li><a href="http://www.gruntjs.com/">grunt</a></li>
+                        <li><a href="http://www.bower.io/">bower</a></li>
+                        <li><a href="http://www.npmjs.com/">npm</a></li>
+                        <li><a href="https://github.com/canvaspop/grunt-static-versioning">grunt static versioning</a></li>
                     </ul>
                 </section>
 
+                <section data-background="img/awesome.jpg">
+                    <h1>50% off</h1>
+                    <h3>because you were all awesome</h3>
+                    <br>
+                    <code>confoo2014</code><br><br>
+                    <p class="footnote"><small>coupon code valid until 03/15/2014<br>on <a href="http://canvaspop.com">CanvasPop</a> or <a href="http://dna11.com">DNA11</a></small></p>
+                </section>
+
                 <section>
-                    <h1>thanks</h1>
-                    <h3>questions?</h3>
+                    <h3>thank you</h3>
+                    <h1>questions</h1>
                     <p class="footnote">
                         <small><a href="http://fabien-d.github.io">Fabien Doiron</a> / <a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></small>
                     </p>
