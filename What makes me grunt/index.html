@@ -32,17 +32,16 @@
 
             <!-- Any section element inside of this container is displayed as a slide -->
             <div class="slides">
-                <section data-background="img/buildtool.jpg">
-                    <h1>what makes me &ldquo;Grunt&rdquo;<small>*</small>?</h1>
-                    <h3>developer happiness courtesy of automation</h3>
+                <section data-background="img/automation.jpg">
+                    <h1>what makes me &ldquo;Grunt&rdquo;?</h1>
+                    <p>developer happiness courtesy of automation</p>
                     <p class="footnote">
-                        <small>*applies to any build tool</small><br>
                         <small><a href="http://fabien-d.github.io">Fabien Doiron</a> / <a href="http://twitter.com/fabien_doiron">@fabien_doiron</a></small>
                     </p>
                 </section>
 
                 <section data-background="img/crazy.gif">
-                    <h1>project without automation</h1>
+                    <h1>no automation</h1>
                     <h3>make me go something something</h3>
                 </section>
 
@@ -143,12 +142,15 @@
                 <section>
                     <h2>how?</h2>
                     <h3>configure a task once, run as often as you want</h3>
+                    <code><span style="color:#AFAD24">~ &#x25B8;</span> build task:target&nbsp;</code>
                 </section>
 
                 <section>
                     <h2>who?</h2>
                     <h3>Grunt, Gulp, Phing, Make, Rake, Jake, Brunch, Ant&hellip;</h3>
                 </section>
+
+                <section data-background="img/time.jpg"></section>
 
                 <section>
                     <h3>1.</h3>
@@ -162,7 +164,6 @@
 
                 <section>
                     <h2>project setup: tools</h2>
-                    <br>
                     <br>
                     <table>
                         <tr>
@@ -181,28 +182,46 @@
                     </table>
                 </section>
 
-                <section>
+                <section data-background="img/steps.jpg">
                     <h2>project setup</h2>
                     <h3>in 3 easy steps</h3>
-                    <br>
-                    <pre class="fragment"><code class="bash"> $ > git clone || git pull
-     # get code from repository</code></pre>
-                    <pre class="fragment"><code class="bash"> $ > vagrant up
-     # provision local VM with chef</code></pre>
-                    <pre class="fragment"><code class="bash"> $ > phing proj:build
-     # get all dependencies with composer, npm and bower
-     # database migration using phinx
-     # runs `grunt build`</code></pre>
+                </section>
+
+                <section style="text-align: left;">
+                    <h2>1.</h2>
+                    <code><span style="color:#AFAD24">~ &#x25B8;</span> git clone &hellip;</code><br>
+                    <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# get code from repository</code>
+                    <br><br>
                     <div class="fragment">
-                        <hr style="opacity:.3">
-                        <pre><code class="bash"> $ > grunt build
-     # linting, preprocessors, concat, minification, versioning
-     # and my personal favourite: ascii</code></pre>
+                        <code><span style="color:#AFAD24">~ &#x25B8;</span> git pull</code><br>
+                        <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# get latest code from repository</code>
                     </div>
                 </section>
 
-                <section data-background="img/ascii.png">
+                <section style="text-align: left;">
+                    <h2>2.</h2>
+                    <code><span style="color:#AFAD24">~ &#x25B8;</span> vagrant up</code><br>
+                    <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# puts together a complete environment<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# provision environment with chef</code>
                 </section>
+
+                <section style="text-align: left;">
+                    <h2>3.</h2>
+                    <code><span style="color:#AFAD24">~ &#x25B8;</span> phing proj:build</code><br>
+                    <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# get deps with composer, npm &amp; bower<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# database migration with phinx<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# front-end build with grunt</code>
+                    <br><br>
+                    <div class="fragment">
+                        <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build</code><br>
+                        <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# lint, preprocess, concat, min, version<br>
+&nbsp;&nbsp;&nbsp;&nbsp;# my personal favourite: ascii</code>
+                    </div>
+                </section>
+
+                <section data-background="img/ascii.png"></section>
+
+                <section data-background="img/coffee.jpg"></section>
 
                 <section>
                     <h3>2.</h3>
@@ -221,7 +240,6 @@
                 <section>
                     <h2>project output: tools</h2>
                     <br>
-                    <br>
                     <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png"></a>
                 </section>
 
@@ -235,58 +253,70 @@
                     <h2>example: compiling Sass into CSS</h2>
                     <h3>user settings</h3>
                     <br>
+                    <div class="fragment">
+                        <p style="text-align: left;">
+                            <code><span style="color:#AFAD24">~ &#x25B8;</span> sass in.scss:out.css --style expanded</code><br>
+                            <code><span style="color:#AFAD24">~ &#x25B8;</span> sass in.scss:out.css --style nested</code>
+                        </p>
+                    </div>
 
-                    <table>
-                        <tr class="fragment">
-                            <th style="width: 35%; text-align: left; vertical-align: middle; padding-right: 35px">command line</th>
-                            <td style="text-align: left; vertical-align: middle;"><pre><code class="bash">$ > sass input.scss output.css</code></pre></td>
-                        </tr>
-                        <tr class="fragment">
-                            <th style="text-align: left; vertical-align: middle;">GUI</th>
-                            <td style="text-align: left; vertical-align: middle;">
-                                <img src="img/codekit.png" height="65">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <img src="img/scout.png" height="65">
-                            </td>
-                        </tr>
-                        <tr class="fragment">
-                            <th style="text-align: left; vertical-align: middle;">result</th>
-                            <td style="text-align: left; vertical-align: middle;">??</td>
-                        </tr>
-                    </table>
+                    <div class="fragment">
+                        <p style="text-align: left;">
+                            <img src="img/codekit.png" height="65">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="img/scout.png" height="65">
+                        </p>
+                    </div>
+
+                    <div class="fragment">
+                        <p style="text-align: left;">
+                            results: can vary
+                        </p>
+                    </div>
                 </section>
 
                 <section>
-                    <h2>example: compiling Sass into CSS</h1>
-                    <h3>abstracted settings</h3>
+                    <h2>grunt compass task</h2>
+                    <pre><code class="javascript"> module.exports = function ( grunt ) {
+     var src = '<%= grunt.option( "src" ) %>';
+     var tmp = '<%= grunt.option( "tmp" ) %>';
 
-                    <table>
-                        <tr class="fragment">
-                            <th style="width: 35%; text-align: left; vertical-align: middle; padding-right: 35px">command line</th>
-                            <td style="text-align: left; vertical-align: middle;"><pre><code class="bash">$ > grunt compass</code></pre></td>
-                        </tr>
-                        <tr class="fragment">
-                            <th style="text-align: left; vertical-align: middle;">IDE / text editor</th>
-                            <td style="text-align: left; vertical-align: middle;">
-                                <img src="img/sublime.png" height="125">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <img src="img/phpstorm.png" height="125">
-                            </td>
-                        </tr>
-                        <tr class="fragment">
-                            <th style="text-align: left; vertical-align: middle;">result</th>
-                            <td style="text-align: left; vertical-align: middle;">the same</td>
-                        </tr>
-                    </table>
+     grunt.config( 'compass', {
+         options: {
+             sassDir: src + '/sass',
+             cssDir: tmp + '/sass'
+         },
+         dist: {}
+     } );
+
+     grunt.loadNpmTasks( 'grunt-contrib-compass' );
+ };</code></pre>
                 </section>
 
-                <!--
-                    <p class="fragment">command line, IDE or&hellip; result is the same</p>
-                    <pre class="fragment"><code> $ > grunt [ compass : cssmin : versioning ]</code></pre>
-                    <div class="fragment"><pre><code> # compass:    Sass -> CSS
- # cssmin:     minify outputted CSS
- # versioning: append MD5 hash to filename</code></pre></div>
-                    <pre class="fragment"><code> $ > grunt [ uglify : versioning ]</code></pre>
-                    <div class="fragment"><pre><code> # uglify:     concat &amp; minify JavaScript
- # versioning: append MD5 hash to filename</code></pre></div>-->
+                <section>
+                    <h2>example: compiling Sass into CSS</h2>
+                    <h3>abstracted settings</h3>
+                    <br>
+                    <div class="fragment">
+                        <p style="text-align: left;">
+                            <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt compass</code>
+                        </p>
+                    </div>
+
+                    <div class="fragment">
+                        <p style="text-align: left;">
+                            <img src="img/sublime.png" height="108">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <img src="img/phpstorm.png" height="108">
+                        </p>
+                    </div>
+
+                    <div class="fragment">
+                        <p style="text-align: left;">
+                            results: are the same
+                        </p>
+                    </div>
+                </section>
+
+                <section data-background="img/coffee.jpg"></section>
 
                 <section>
                     <h3>3.</h3>
@@ -294,13 +324,73 @@
                 </section>
 
                 <section>
-                    <h1>environments: goal</h1>
+                    <h2>environments: goal</h2>
                     <h3>easily work in a dev and/or production replica environment</h3>
                 </section>
 
                 <section>
-                    <h1>environments: tools</h1>
-                    <h3>Grunt</h3>
+                    <h2>environments: tools</h2>
+                    <br>
+                    <a href="http://www.gruntjs.com/" style="margin: 0 15px; display: inline-block; vertical-align: middle;"><img src="img/grunt-logo.png"></a>
+                </section>
+
+                <section data-background="img/4steps.jpg">
+                    <h2>environments setup</h2>
+                    <h3>in 4 easy steps</h3>
+                </section>
+
+                <section style="text-align: left;">
+                    <h2>1. separate targets</h2>
+                    <br>
+                    <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code><br>
+                    <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# all source files, commented, unminified</code>
+                    <br><br>
+                    <div class="fragment">
+                        <code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code><br>
+                        <code style="color: #36BC26">&nbsp;&nbsp;&nbsp;&nbsp;# concat, minified, versioned files</code>
+                    </div>
+                </section>
+
+                <section style="text-align: left;">
+                    <h2>2. output</h2>
+                    <table>
+                        <tr>
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code></th>
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code><br></th>
+                        </tr>
+                        <tr>
+                            <td class="fragment"><pre><code class="bash"> &#x25B8; public
+   &#x25B8; static
+     &#x25B8; css
+       main.css
+
+     &#x25B8; js
+       file1.js
+       file2.js
+       home1.js
+       home2.js
+       &hellip;
+
+     &#x25B8; fonts
+     &#x25B8; img</code></pre></td>
+
+                            <td class="fragment"><pre><code> public
+ .... static
+      .... css
+               main.7f41197e.min.css
+
+      .... js
+               plugins.7409b19a.min.js
+               common.4923a32c.min.js
+               home.47b0990d.min.js
+
+      .... fonts
+      .... img
+
+
+</code></pre></td>
+                        </tr>
+                    </table>
                 </section>
 
                 <section>
