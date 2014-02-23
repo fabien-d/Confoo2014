@@ -80,47 +80,14 @@
                     </aside>
                 </section>
 
-                <section>
-                    <h2>server vs client</h2>
-                    <br>
-                    <table>
-                        <tr class="fragment">
-                            <th style="vertical-align: top; padding: 0; text-align: left;">server</th>
-                            <td style="vertical-align: top; text-align: left;">
-                                <ul>
-                                    <li>limited by what is on the server</li>
-                                    <li>works here, works everywhere</li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
-                        </tr>
-                        <tr class="fragment">
-                            <th style="vertical-align: top; padding: 0; text-align: left;">client</th>
-                            <td style="vertical-align: top; text-align: left;">
-                                <ul>
-                                    <li>limited by what the client (e.g. browser) supports</li>
-                                    <li>works here, hope it works everywhere</li>
-                                </ul>
-                            </td>
-                        </tr>
-                    </table>
-                </section>
-
-                <section data-background="img/sad.jpeg">
-                    <h2 class="footnote" style="background: rgba(0,0,0,.6); padding: 5px 0 10px">&ldquo;One cries because one is sad.<br>For example, I cry because browsers are inconsistent and that makes me sad.&rdquo;</h2>
-                </section>
-
-                <section data-background="img/2sides.jpg">
-                    <h2>2 types of problems</h2>
+                <section data-background="img/unexpected.jpg">
+                    <h1>compatibility &amp; unexpected results</h1>
                 </section>
 
                 <section>
-                    <h2>missing features</h2>
-                    <h3>HTML5 form validation</h3>
-                    <br>
+                    <h2>backwards compatibility</h2>
+                    <code>Object.create</code>
+                    <br><br>
                     <table class="fragment">
                         <tr>
                             <th>Chrome</th>
@@ -131,20 +98,20 @@
                         </tr>
                         <tr>
                             <td><span style="color: #7F975F;">Yes</span></td>
-                            <td><span style="color: #7F975F;">Yes</span></td>
-                            <td><span style="color: #CC9393;">10+</span></td>
-                            <td><span style="color: #7F975F;">Yes</span></td>
-                            <td><span style="color: #7F975F;">Yes</span></td>
+                            <td><span style="color: #CC9393;">4+</span></td>
+                            <td><span style="color: #CC9393;">9+</span></td>
+                            <td><span style="color: #CC9393;">12+</span></td>
+                            <td><span style="color: #CC9393;">5+</span></td>
                         </tr>
                     </table>
                 </section>
 
                 <section>
-                    <h2>need a fallback for  IE9-</h2>
+                    <h2>include a shim, don&rsquo;t use the feature or ignore the unsupported browsers</h2>
                 </section>
 
                 <section>
-                    <h2>missing/incomplete functionality</h2>
+                    <h2>cross browser compatibility</h2>
                     <code>focusout</code>
                     <br><br>
                     <table class="fragment">
@@ -167,6 +134,61 @@
 
                 <section>
                     <h2>bug has been opened for over<br><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=687787">2.5 years</a></h2>
+                </section>
+
+                <section>
+                    <h2>unexpected results</h2>
+                    <pre><code class="javascript"> var input = document.createElement( 'input' );
+ input.value = 'confoo2014';
+ input.setAttribute( 'type', 'radio' );
+
+ console.log( input.value === 'confoo2014' );</code></pre>
+                    <br><br>
+                    <table class="fragment">
+                        <tr>
+                            <th>Chrome</th>
+                            <th>Firefox</th>
+                            <th>Internet Explorer</th>
+                            <th>Opera</th>
+                            <th>Safari</th>
+                        </tr>
+                        <tr>
+                            <td><span style="color: #7F975F;"><code>true</code></span></td>
+                            <td><span style="color: #7F975F;"><code>true</code></span></td>
+                            <td><span style="color: #CC9393;"><code>false IE10-</code></span><br><code>true? IE11</code></td>
+                            <td><span style="color: #7F975F;"><code>true</code></span></td>
+                            <td><span style="color: #7F975F;"><code>true</code></span></td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section>
+                    <h2>&ldquo;<code>value</code>&rdquo; attribute must be set<br>after &ldquo;<code>type</code>&rdquo; attribute</h2>
+                </section>
+
+                <section data-background="img/2sides.jpg">
+                    <h1>server-side vs client-side</h1>
+                </section>
+
+                <section>
+                    <h2>server-side code</h2>
+                    <ul>
+                        <li class="fragment">limited by what the server supports</li>
+                        <li class="fragment">works in 1 spot, works everywhere</li>
+                    </ul>
+                    <br><br>
+
+                    <div class="fragment">
+                        <h2>client-side code</h2>
+                        <ul>
+                            <li class="fragment">limited by what the client (e.g. browser) supports</li>
+                            <li class="fragment">works in 1 spot, hope it works everywhere</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section data-background="img/sad.jpeg">
+                    <h2 class="footnote" style="background: rgba(0,0,0,.6); padding: 5px 0 10px">&ldquo;One cries because one is sad.<br>For example, I cry because browsers are inconsistent and that makes me sad.&rdquo;</h2>
                 </section>
 
                 <!--<section>
@@ -225,14 +247,14 @@
 
                 <section>
                     <h1>0%</h1>
-                    <h3>number of browsers in 2006 that supported</h3>
+                    <h3>of browsers in 2006 supported</h3>
                     <code>querySelector()</code>
                     <p class="footnote"><small>&nbsp;</small></p>
                 </section>
 
                 <section>
                     <h1>100%*</h1>
-                    <h3>number of browsers in 2014 that support</h3>
+                    <h3>of browsers in 2014 support</h3>
                     <code>querySelector()</code>
 
                     <p class="footnote"><small>*current version and up to 3 versions back</small></p>
@@ -240,12 +262,12 @@
 
                 <section data-background="img/notneed.png"></section>
 
-                <section data-background="img/99problems.jpeg">
+                <!--<section data-background="img/99problems.jpeg">
                     <h2 class="footnote" style="background: rgba(0,0,0,.6); padding: 5px 0 10px">I got 99 problems but IE7 ain&rsquo;t one</h2>
                     <div class="footnote">
                         <h2></h2>
                     </div>
-                </section>
+                </section>-->
 
                 <section>
                     <h2>jQuery: pros</h2>
@@ -279,7 +301,7 @@
 
                 <section>
                     <h2>in other words</h2>
-                    <h3>write your own API do not rely on someone elses</h3>
+                    <h3>write your own API</h3>
                 </section>
 
                 <section>
@@ -288,12 +310,13 @@
                 </section>
 
                 <section>
-                    <h2>write code that is interchangeable</h2>
+                    <h2>write code that is not tied to any particular library</h2>
                 </section>
 
                 <section>
                     <h2>basic example</h2>
                     <pre><code class="javascript"> $( '.conference' ).addClass( 'confoo2014' );
+
  // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></code></pre>
                 </section>
 
@@ -322,16 +345,8 @@
                     <div class="fragment">
                         <pre><code class="javascript"> var el = myui.qs( '.conference' );
  myui.addClass( el, 'confoo2014' );
+
  // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre><br>
-
-                        <h3>for reference</h3>
-                        <pre><code class="javascript"> myui.qs = function querySelector ( selector ) {
-     return $( selector )[ 0 ];
- };
-
- myui.addClass = function addClass ( el, klass ) {
-     $( el ).addClass( klass );
- };</code></pre>
                     </div>
                 </section>
 
@@ -361,15 +376,6 @@
                         <pre><code class="javascript"> var el = myui.qs( '.conference' );
  myui.addClass( el, 'confoo2014' );
  // &lt;div class="conference confoo2014"&gt;&hellip;&lt;/div&gt;</code></pre><br>
-
-                        <h3>for reference</h3>
-                        <pre><code class="javascript"> myui.qs = function querySelector ( selector ) {
-     return document.querySelector( selector );
- };
-
- myui.addClass = function addClass ( el, klass ) {
-     el.classList.add( klass );
- };</code></pre>
                     </div>
                 </section>
 
@@ -425,6 +431,10 @@
 
                 <section>
                     <h2>potential performance issue</h2>
+                </section>
+
+                <section>
+                    <h2>dealing with edge cases</h2>
                 </section>
 
                 <!--<section>
@@ -538,9 +548,20 @@
 
                 <section>
                     <ul>
-                        <li>recap point 1</li>
-                        <li class="fragment">recap point 2</li>
+                        <li>don&rsquo;t let anyone tell you to stop using jQuery</li>
+                        <li class="fragment">JavaScript development has compatibility issues</li>
+                        <li class="fragment">JavaScript development has unexpected results</li>
+                        <li class="fragment">libraries deal with these problems</li>
+                        <li class="fragment">lots of pros for using jQuery</li>
+                        <li class="fragment">lots of cons for using jQuery</li>
+                        <li class="fragment">consider abstraction</li>
+                        <li class="fragment">hide the fact that you use a library</li>
+                        <li class="fragment">there are some drawbacks</li>
                     </ul>
+                </section>
+
+                <section data-background="img/jquery.jpg">
+                    <h1>only you can decide if jQuery is the right option</h1>
                 </section>
 
                 <section>
@@ -554,11 +575,11 @@
                 </section>
 
                 <section data-background="../common/img/awesome.jpg">
-                    <h1>50% off</h1>
-                    <h3>because you were all awesome</h3>
-                    <br>
-                    <code>confoo2014</code><br><br>
-                    <p class="footnote"><small>coupon code valid until 03/15/2014<br>on <a href="http://canvaspop.com">CanvasPop</a> or <a href="http://dna11.com">DNA11</a></small></p>
+                    <code>CONFOO2014</code><br><br>
+                    <h1 style="margin: 0;">40% off</h1>
+                    <h3>coupon code because you were awesome</h3>
+                    <a href="http://canvaspop.com"><img src="../common/img/cp-logo.png"></a>
+                    <p class="footnote" style="top: 100px"><small>*valid until March 30, 2014</small></p>
                 </section>
 
                 <section>
