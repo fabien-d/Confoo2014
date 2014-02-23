@@ -89,7 +89,7 @@ body {
 .reveal pre code {
   box-shadow: none;
   background: rgba(255,255,255,.1);
-  line-height: 1.4;
+  line-height: 1.3;
   max-height: 500px;
 }
 
