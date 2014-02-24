@@ -13,13 +13,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <link rel="stylesheet" href="../common/css/reveal.min.css">
-        <link rel="stylesheet" href="../common/css/theme/fabien.css">
+        <link rel="stylesheet" href="../common/css/theme/fabien.css" id="theme">
 
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="../common/lib/css/zenburn.css">
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
-        <link rel="stylesheet" href="../common/css/print/pdf.css" media="print">
+        <script>
+            document.write( '<link rel="stylesheet" href="../common/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
 
         <!--[if lt IE 9]>
         <script src="../common/lib/js/html5shiv.js"></script>
