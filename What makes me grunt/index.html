@@ -13,15 +13,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <link rel="stylesheet" href="../common/css/reveal.min.css">
-        <link rel="stylesheet" href="../common/css/theme/fabien.css" id="theme">
+        <link rel="stylesheet" href="../common/css/theme/fabien.css">
 
         <!-- For syntax highlighting -->
         <link rel="stylesheet" href="../common/lib/css/zenburn.css">
 
         <!-- If the query includes 'print-pdf', use the PDF print sheet -->
-        <script>
-            document.write( '<link rel="stylesheet" href="../common/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-        </script>
+        <link rel="stylesheet" href="../common/css/print/pdf.css" media="print">
 
         <!--[if lt IE 9]>
         <script src="../common/lib/js/html5shiv.js"></script>
@@ -396,13 +394,27 @@
                     </aside>
                 </section>
 
-                <section data-background="#BC0621">
+                <!--<section data-background="#BC0621">
                     <img src="img/works-on-my-machine.png">
 
                     <aside class="notes">
                         <ul>
                             <li>main reason this is important</li>
                             <li>avoid at all cost "works on my machine" excuse</li>
+                        </ul>
+                    </aside>
+                </section>-->
+
+                <section>
+                    <h2>reduce the risk of
+                    <br>&ldquo;<span style="color:#AFAD24">works on my machine</span>&rdquo;<br>
+                    by abstracting the output settings from the user to the build tool</h2>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>mentioned avoid "works on my machine"</li>
+                            <li>avoid having settings tied to a dev</li>
+                            <li>abstract from user to the project</li>
                         </ul>
                     </aside>
                 </section>
@@ -416,20 +428,6 @@
                         <ul>
                             <li>front-end build tools</li>
                             <li>where the talk gets more focused on front-end</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section>
-                    <h2>reduce the risk of
-                    <br>&ldquo;<span style="color:#AFAD24">works on my machine</span>&rdquo;<br>
-                    by abstracting the output settings from the user to the build tool</h2>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>mentioned avoid "works on my machine"</li>
-                            <li>avoid having settings tied to a dev</li>
-                            <li>abstract from user to the project</li>
                         </ul>
                     </aside>
                 </section>
@@ -670,14 +668,6 @@
                 </section>
 
                 <section data-background="img/workflow1.jpg"></section>
-                <section data-background="img/workflow2.jpg"></section>
-                <section data-background="img/workflow3.jpg"></section>
-                <section data-background="img/workflow4.jpg"></section>
-                <section data-background="img/workflow5.jpg"></section>
-                <section data-background="img/workflow6.jpg"></section>
-                <section data-background="img/workflow7.jpg"></section>
-                <section data-background="img/workflow8.jpg"></section>
-                <section data-background="img/workflow9.jpg"></section>
 
                 <section style="text-align: left;">
                     <h2>i. separate targets</h2>
@@ -697,56 +687,37 @@
                     </aside>
                 </section>
 
-                <section style="text-align: left;">
-                    <h2>ii. generated output</h2>
-                    <table>
-                        <tr>
-                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code></th>
-                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code><br></th>
-                        </tr>
-                        <tr>
-                            <td class="fragment"><pre><code class="markdown"> &#x25BE; public
-   &#x25BE; static
-     &#x25BE; css
-       main.css
+                <section data-background="img/workflow1.jpg"></section>
+                <section data-background="img/workflow2.jpg"></section>
+                <section data-background="img/workflow3.jpg"></section>
 
-     &#x25BE; js
-       plugin1.js
-       plugin2.js
-       common1.js
-       common2.js
-       home1.js
-       home2.js
-       &hellip;</code></pre></td>
-
-                            <td class="fragment"><pre><code class="markdown"> &#x25BE; public
-   &#x25BE; static
-     &#x25BE; css
-       main.7f41197e.min.css
-
-     &#x25BE; js
-       plugins.7409b19a.min.js
-       common.4923a32c.min.js
-       home.47b0990d.min.js
-       &hellip;
-
-
-
-</code></pre></td>
-                        </tr>
-                    </table>
-
+                <section>
+                    <h2>grunt versioning task</h2>
+                    <pre><code class="javascript"> versioning: {
+     options: {
+         cwd: 'public',
+         outputConfigDir: 'public/config'
+     },
+     dist: {
+         files: [{
+             assets: '&lt;%= uglify.main.files %&gt;',
+             key: 'global',
+             dest: 'js',
+             type: 'js',
+             ext: '.min.js'
+         }, { &hellip; } ]
+     }
+ }</code></pre>
                     <aside class="notes">
                         <ul>
-                            <li>versioning task generates the output</li>
-                            <li>seen that it copies file to output</li>
-                            <li>:dev public directory with static directory inside</li>
-                            <li>copies all files, loses directory structure</li>
-                            <li>:prod same overall directory structure</li>
-                            <li>copies versioned/concat files</li>
+                            <li>sample grunt versioning task</li>
+                            <li>leverages other task, uglify and cssmin</li>
                         </ul>
                     </aside>
                 </section>
+
+                <section data-background="img/workflow3.jpg"></section>
+                <section data-background="img/workflow4.jpg"></section>
 
                 <section style="text-align: left;">
                     <h2>iii. generated configuration file</h2>
@@ -823,6 +794,66 @@
                         </ul>
                     </aside>
                 </section>
+
+                <section data-background="img/workflow4.jpg"></section>
+                <section data-background="img/workflow5.jpg"></section>
+
+                <section style="text-align: left;">
+                    <h2>ii. generated output</h2>
+                    <table>
+                        <tr>
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:dev</code></th>
+                            <th style="text-align: left;"><code><span style="color:#AFAD24">~ &#x25B8;</span> grunt build:prod</code><br></th>
+                        </tr>
+                        <tr>
+                            <td class="fragment"><pre><code class="markdown"> &#x25BE; public
+   &#x25BE; static
+     &#x25BE; css
+       main.css
+
+     &#x25BE; js
+       plugin1.js
+       plugin2.js
+       common1.js
+       common2.js
+       home1.js
+       home2.js
+       &hellip;</code></pre></td>
+
+                            <td class="fragment"><pre><code class="markdown"> &#x25BE; public
+   &#x25BE; static
+     &#x25BE; css
+       main.7f41197e.min.css
+
+     &#x25BE; js
+       plugins.7409b19a.min.js
+       common.4923a32c.min.js
+       home.47b0990d.min.js
+       &hellip;
+
+
+
+</code></pre></td>
+                        </tr>
+                    </table>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>versioning task generates the output</li>
+                            <li>seen that it copies file to output</li>
+                            <li>:dev public directory with static directory inside</li>
+                            <li>copies all files, loses directory structure</li>
+                            <li>:prod same overall directory structure</li>
+                            <li>copies versioned/concat files</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <section data-background="img/workflow5.jpg"></section>
+                <section data-background="img/workflow6.jpg"></section>
+                <section data-background="img/workflow7.jpg"></section>
+                <section data-background="img/workflow8.jpg"></section>
+                <section data-background="img/workflow9.jpg"></section>
 
                 <section style="text-align: left;">
                     <h2>iv. use generated configuration file</h2>
