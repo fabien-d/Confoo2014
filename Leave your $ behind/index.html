@@ -310,7 +310,7 @@
                 </section>
 
                 <section>
-                    <h2>write code that is not tied to any particular library</h2>
+                    <h2>write code that is not tied to any library</h2>
                 </section>
 
                 <section>
@@ -326,17 +326,20 @@
 
  /**
   * Return first matching element
-  * @requires jQuery &hellip; */
+  * @requires jQuery &hellip;
+  */
  myui.qs = function querySelector ( selector ) {
      return $( selector )[ 0 ];
  };
 
  /**
   * Add class to passed element
-  * @requires jQuery &hellip; */
+  * @requires jQuery &hellip;
+  */
  myui.addClass = function addClass ( el, klass ) {
      $( el ).addClass( klass );
- };</code></pre>
+ };</code></pre><br><br>
+                    <p class="fragment"><small>*basic example to show the concept</small></p>
                 </section>
 
                 <section>
@@ -356,17 +359,20 @@
 
  /**
   * Return first matching element
-  * @requires N/A &hellip; */
+  * @requires N/A &hellip;
+  */
  myui.qs = function querySelector ( selector ) {
      return document.querySelector( selector );
  };
 
  /**
   * Add class to passed element
-  * @requires N/A &hellip; */
+  * @requires N/A &hellip;
+  */
  myui.addClass = function addClass ( el, klass ) {
      el.classList.add( klass );
- };</code></pre>
+ };</code></pre><br><br>
+                    <p class="fragment"><small>*basic example to show the concept</small></p>
                 </section>
 
                 <section>
